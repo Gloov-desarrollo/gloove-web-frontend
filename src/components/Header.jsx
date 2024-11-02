@@ -2,11 +2,12 @@ import { Container } from "react-bootstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Header = ({ head, description }) => {
   const handleBookNowClick = () => {
     // navigate("/booking");
-    window.location.href = "/booking";
+    window.location.href = "https://gloove-test.vercel.app/login";
   };
   const handleLogoClick = () => {
     window.location.href = "/";
@@ -200,8 +201,8 @@ const Header = ({ head, description }) => {
                     </ul>
                   </li>
                   <li className="menu-item-has-children">
-                    <a href="#">Blog</a>
-                    <ul>
+                  <a href="https://gloove.me/blog/" target="_blank"> Blog</a>
+                  <ul>
                       <li>
                         <a href="blog-archive.html">Blog List</a>
                       </li>
@@ -367,13 +368,7 @@ const Header = ({ head, description }) => {
                 <div className="de-flex-col header-col-mid">
                   <ul id="mainmenu" style={{ height: "auto" }}>
                     <li>
-                      <a
-                        className="menu-item"
-                        href="#"
-                        style={{ color: "white", fontSize: "20px" }}
-                      >
-                        Inicio
-                      </a>
+                      <Link to="/" style={{ color: "white", fontSize: "20px" }}> Inicio </Link>
                       {/* <ul>
                         <li>
                           <a className="menu-item" href="02_dark-index-1.html">
@@ -418,14 +413,8 @@ const Header = ({ head, description }) => {
                       </ul> */}
                     </li>
                     <li>
-                      <a
-                        className="menu-item"
-                        href="/booking"
-                        style={{ color: "white", fontSize: "20px" }}
-                      >
-                        Reservas
-                      </a>
-                      <ul>
+                    <Link to="/booking" style={{ color: "white", fontSize: "20px" }}> Reservas </Link>
+                      {/* <ul>
                         <li>
                           <a className="menu-item" href="/tour">
                             Reservas
@@ -449,25 +438,13 @@ const Header = ({ head, description }) => {
                             Reservas Confirmación
                           </a>
                         </li>
-                      </ul>
+                      </ul> */}
                     </li>
                     <li>
-                      <a
-                        className="menu-item"
-                        href="/tour"
-                        style={{ color: "white", fontSize: "20px" }}
-                      >
-                        Experiencias
-                      </a>
+                    <Link to="/tour" style={{ color: "white", fontSize: "20px" }}> Experiencias </Link>
                     </li>
                     <li>
-                      <a
-                        className="menu-item"
-                        href="account-dashboard.html"
-                        style={{ color: "white", fontSize: "20px" }}
-                      >
-                        Sobre nosotros
-                      </a>
+                      <a href="https://gloove.me/sobre-nosotros/" target="_blank" style={{ color: "white", fontSize: "20px" }}> Sobre nosotros</a>
                       {/* <ul>
                         <li>
                           <a
@@ -495,13 +472,7 @@ const Header = ({ head, description }) => {
                       </ul> */}
                     </li>
                     <li>
-                      <a
-                        className="menu-item"
-                        href="#"
-                        style={{ color: "white", fontSize: "20px" }}
-                      >
-                        Blog
-                      </a>
+                    <a href="https://gloove.me/blog/" style={{ color: "white", fontSize: "20px" }} target="_blank"> Blog</a>
                       {/* <ul>
                         <li>
                           <a className="menu-item" href="about.html">
@@ -531,14 +502,8 @@ const Header = ({ head, description }) => {
                       </ul> */}
                     </li>
                     <li>
-                      <a
-                        className="menu-item"
-                        href="#"
-                        style={{ color: "white", fontSize: "20px" }}
-                      >
-                        Contacto
-                      </a>
-                      {/* <ul>
+                    <a href="https://gloove.me/contacto/" target="_blank" style={{ color: "white", fontSize: '20px' }} > Contacto </a>
+                    {/* <ul>
                         <li>
                           <a
                             className="menu-item"
@@ -713,7 +678,7 @@ const Header = ({ head, description }) => {
                           marginTop: "4px",
                         }}
                       />
-                      Buscar
+                      Mi cuenta
                     </button>
                     <span id="menu-btn" />
                   </div>

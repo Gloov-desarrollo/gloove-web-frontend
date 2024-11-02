@@ -24,6 +24,7 @@ function Booking() {
   const [filteredIndex, setFilteredIndex] = useState([]);
   const [descriptions, setDescriptions] = useState(null);
   const [criteria, setCriteria] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const responsive = {
     desktop: {
@@ -34,13 +35,21 @@ function Booking() {
   };
 
   const fetch = async () => {
-    const [accom, desc] = await Promise.all([
-      getAccomodations(),
-      getDescriptions(),
-    ]);
-    setAccommodations(accom["data"]);
-    setDescriptions(desc["data"]);
+    setLoading(true); // Inicia el loading antes de la llamada
+    try {
+      const [accom, desc] = await Promise.all([
+        getAccomodations(),
+        getDescriptions(),
+      ]);
+      setAccommodations(accom["data"]);
+      setDescriptions(desc["data"]);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false); // Finaliza el loading después de cargar los datos
+    }
   };
+  
 
   useEffect(() => {
     if (accommodations && descriptions) {
@@ -168,7 +177,7 @@ function Booking() {
                 flexDirection: "column",
               }}
             >
-              <a href="#">
+              <a href="https://www.facebook.com/profile.php?id=100090425376184">
                 <img
                   src="./images/happy (9).png"
                   alt=""
@@ -178,7 +187,7 @@ function Booking() {
                   }}
                 ></img>
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/company/gloove-gestor-turistico/?viewAsMember=true">
                 <img
                   src="./images/happy (6).png"
                   alt=""
@@ -188,7 +197,7 @@ function Booking() {
                   }}
                 ></img>
               </a>
-              <a href="#">
+              {/* <a href="#">
                 <img
                   src="./images/happy (7).png"
                   alt=""
@@ -197,8 +206,8 @@ function Booking() {
                     height: "70px",
                   }}
                 ></img>
-              </a>
-              <a href="#">
+              </a> */}
+              <a href="https://www.instagram.com/gloove_me/">
                 <img
                   src="./images/happy (8).png"
                   alt=""
@@ -296,7 +305,7 @@ function Booking() {
                           type="text"
                           name="DropoffLocation"
                           // onFocus="geolocate()"
-                          placeholder="Enter your dropoff location"
+                          placeholder="Localización"
                           id="autocomplete2"
                           autoComplete="off"
                           className="form-control"
@@ -315,7 +324,7 @@ function Booking() {
                           <input
                             type="text"
                             id="date-picker"
-                            name="Pick Up Date"
+                            name="Check-in"
                             defaultValue=""
                             style={{ width: "100%", borderRadius: "5px" }}
                           />
@@ -451,7 +460,7 @@ function Booking() {
                       >
                         <div>
                           <h5 style={{ color: "white", paddingBottom: "0px" }}>
-                            No habitaciones
+                            Nro. habitaciones
                           </h5>
                           <select
                             name="Pick Up Time"
@@ -464,7 +473,7 @@ function Booking() {
                             }}
                           >
                             <option disabled="" value="Select time">
-                              Rooms
+                              Habitaciones
                             </option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -486,7 +495,7 @@ function Booking() {
                             }}
                           >
                             <option disabled="" value="Select time">
-                              Adults
+                              Adultos
                             </option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -508,7 +517,7 @@ function Booking() {
                             }}
                           >
                             <option disabled="" value="Select time">
-                              Children
+                              Niños
                             </option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -585,8 +594,9 @@ function Booking() {
               </div>
               <div className="col-lg-9">
                 <div className="row">
-                  {accommodations &&
-                    descriptions &&
+                {!accommodations || !descriptions ? (
+                  <p>Cargando...</p> // Mostrar mensaje de carga
+                ) : (
                     filteredIndex.filter((index) => {
                       const accom = accommodations[index];
                       const desc = descriptions[index];
@@ -703,7 +713,7 @@ function Booking() {
                           </div>
                         </div>
                       );
-                    })}
+                    }))}
                 </div>
               </div>
             </div>
@@ -974,6 +984,7 @@ function Booking() {
                             <a href="#">No Comments</a>
                           </span>
                         </div> */}
+                      <a href="https://www.facebook.com/profile.php?id=100090425376184" target="_blank">
                       <img
                         src="./images/happy (9).png"
                         alt=""
@@ -983,6 +994,7 @@ function Booking() {
                           backgroundColor: "#156B7A",
                         }}
                       />
+                      </a>
                     </li>
                     <li
                       style={{
@@ -992,17 +1004,19 @@ function Booking() {
                         padding: "0px",
                       }}
                     >
-                      <img
-                        src="./images/happy (6).png"
-                        alt=""
-                        style={{
-                          width: "50px",
-                          height: "50px",
-                          backgroundColor: "#156B7A",
-                        }}
-                      />
+                      <a href="https://www.linkedin.com/company/gloove-gestor-turistico/?viewAsMember=true" target="_blank">
+                        <img
+                          src="./images/happy (6).png"
+                          alt=""
+                          style={{
+                            width: "50px",
+                            height: "50px",
+                            backgroundColor: "#156B7A",
+                          }}
+                        />
+                      </a>
                     </li>
-                    <li
+                    {/* <li
                       style={{
                         display: "flex",
                         justifyContent: "center",
@@ -1019,7 +1033,7 @@ function Booking() {
                           backgroundColor: "#156B7A",
                         }}
                       />
-                    </li>
+                    </li> */}
                     <li
                       style={{
                         display: "flex",
@@ -1028,15 +1042,17 @@ function Booking() {
                         padding: "0px",
                       }}
                     >
-                      <img
-                        src="./images/happy (8).png"
-                        alt=""
-                        style={{
-                          width: "50px",
-                          height: "50px",
-                          backgroundColor: "#156B7A",
-                        }}
-                      />
+                      <a href="https://api.whatsapp.com/message/WKHHAGYK4P4BB1?autoload=1&app_absent=0" target="_blank">
+                        <img
+                          src="./images/happy (8).png"
+                          alt=""
+                          style={{
+                            width: "50px",
+                            height: "50px",
+                            backgroundColor: "#156B7A",
+                          }}
+                        />
+                      </a>
                     </li>
                   </ul>
                 </aside>
@@ -1051,7 +1067,7 @@ function Booking() {
                 <div className="footer-menu">
                   <ul>
                     <li>
-                      <a href="#">Política de Privacidad</a>
+                      <a href="https://gloove.me/politica-de-privacidad/" target="_blank">Política de Privacidad</a>
                     </li>
                     <li>
                       <a href="#">Términos y condiciones</a>

@@ -1,6 +1,6 @@
 export const getAccomodations = async () => {
   // const url = `https://bird-rested-wombat.ngrok-free.app/accommodations`;
-  const url = `http://localhost:8080/accommodations`;
+  const url = `https://gloove-web-back-test.vercel.app/accommodations`;
   const res = await fetch(url, { method: "get",
   headers: {
     "Content-Type": "application/json",
@@ -13,7 +13,7 @@ export const getAccomodations = async () => {
 
 export const getDescriptions = async () => {
   // const url = `https://bird-rested-wombat.ngrok-free.app/descriptions`;
-  const url = `http://localhost:8080/descriptions`;
+  const url = `https://gloove-web-back-test.vercel.app/descriptions`;
   const res = await fetch(url, { method: "get",
   headers: {
     "Content-Type": "application/json",

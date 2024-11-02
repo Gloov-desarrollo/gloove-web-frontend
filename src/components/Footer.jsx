@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
@@ -122,13 +124,13 @@ const Footer = () => {
                 >
                   {/* <h3 className="widget-title">About Travel</h3> */}
                   <div className="">
-                    <a href="#">
+                    <Link to="/">
                       <img
                         src="./images/GLOOVE_marca_tagline_COL.png"
                         alt=""
                         style={{ width: "100%", height: "auto" }}
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div
                     className="textwidget widget-text"
@@ -158,9 +160,9 @@ const Footer = () => {
                           lineHeight: "30px",
                         }}
                       >
-                        <a href="#" style={{ color: "#156B7A" }}>
+                        <Link to="/" style={{ color: "#156B7A" }}>
                         Inicio
-                        </a>
+                        </Link>
                       </li>
                       <li
                         style={{
@@ -169,9 +171,9 @@ const Footer = () => {
                           lineHeight: "30px",
                         }}
                       >
-                        <a href="#" style={{ color: "#156B7A" }}>
+                        <Link to="/booking" style={{ color: "#156B7A" }}>
                         Reservas
-                        </a>
+                        </Link>
                       </li>
                       <li
                         style={{
@@ -180,9 +182,9 @@ const Footer = () => {
                           lineHeight: "30px",
                         }}
                       >
-                        <a href="#" style={{ color: "#156B7A" }}>
+                        <Link to="/tour" style={{ color: "#156B7A" }}>
                         Experiencias
-                        </a>
+                        </Link>
                       </li>
                       <li
                         style={{
@@ -191,9 +193,8 @@ const Footer = () => {
                           lineHeight: "30px",
                         }}
                       >
-                        <a href="#" style={{ color: "#156B7A" }}>
-                        Sobre nosotros
-                        </a>
+                        <a href="https://gloove.me/sobre-nosotros/" target="_blank" style={{ color: "#156B7A" }}> Sobre nosotros</a>
+
                       </li>
                       <li
                         style={{
@@ -202,9 +203,8 @@ const Footer = () => {
                           lineHeight: "30px",
                         }}
                       >
-                        <a href="#" style={{ color: "#156B7A" }}>
-                        Blog
-                        </a>
+                        <a href="https://gloove.me/blog/" style={{ color: "#156B7A"}} target="_blank"> Blog</a>
+
                       </li>
                       <li
                         style={{
@@ -213,9 +213,7 @@ const Footer = () => {
                           lineHeight: "30px",
                         }}
                       >
-                        <a href="#" style={{ color: "#156B7A" }}>
-                        Contacto
-                        </a>
+                        <a href="https://gloove.me/contacto/" target="_blank" style={{ color: "#156B7A" }} > Contacto </a>
                       </li>
                       {/* <li
                         style={{
@@ -262,15 +260,17 @@ const Footer = () => {
                             <a href="#">No Comments</a>
                           </span>
                         </div> */}
-                      <img
-                        src="./images/happy (9).png"
-                        alt=""
-                        style={{
-                          width: "50px",
-                          height: "50px",
-                          backgroundColor: "#156B7A",
-                        }}
-                      />
+                        <a href="https://www.facebook.com/profile.php?id=100090425376184" target="_blank">
+                          <img
+                            src="./images/happy (9).png"
+                            alt=""
+                            style={{
+                              width: "50px",
+                              height: "50px",
+                              backgroundColor: "#156B7A",
+                            }}
+                          />
+                        </a>
                     </li>
                     <li
                       style={{
@@ -280,15 +280,17 @@ const Footer = () => {
                         padding: "0px",
                       }}
                     >
-                      <img
-                        src="./images/happy (6).png"
-                        alt=""
-                        style={{
-                          width: "50px",
-                          height: "50px",
-                          backgroundColor: "#156B7A",
-                        }}
-                      />
+                      <a href="https://www.linkedin.com/company/gloove-gestor-turistico/?viewAsMember=true" target="_blank">
+                        <img
+                          src="./images/happy (6).png"
+                          alt=""
+                          style={{
+                            width: "50px",
+                            height: "50px",
+                            backgroundColor: "#156B7A",
+                          }}
+                        />
+                      </a>
                     </li>
                     {/* <li
                       style={{
@@ -316,15 +318,17 @@ const Footer = () => {
                         padding: "0px",
                       }}
                     >
-                      <img
-                        src="./images/happy (8).png"
-                        alt=""
-                        style={{
-                          width: "50px",
-                          height: "50px",
-                          backgroundColor: "#156B7A",
-                        }}
-                      />
+                      <a href="https://www.instagram.com/gloove_me/" target="_blank">
+                        <img
+                          src="./images/happy (8).png"
+                          alt=""
+                          style={{
+                            width: "50px",
+                            height: "50px",
+                            backgroundColor: "#156B7A",
+                          }}
+                        />
+                      </a>
                     </li>
                   </ul>
                 </aside>
@@ -339,7 +343,7 @@ const Footer = () => {
                 <div className="footer-menu">
                   <ul>
                     <li>
-                      <a href="#">Política de Privacidad</a>
+                      <a href="https://gloove.me/politica-de-privacidad/" target="_blank">Política de Privacidad</a>
                     </li>
                     <li>
                       <a href="#">Términos y condiciones</a>

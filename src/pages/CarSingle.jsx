@@ -1036,7 +1036,7 @@ function CarSingle() {
                 <div className="footer-menu">
                   <ul>
                     <li>
-                      <a href="#">Política de Privacidad</a>
+                      <a href="https://gloove.me/politica-de-privacidad/" target="_blank">Política de Privacidad</a>
                     </li>
                     <li>
                       <a href="#">Términos y condiciones</a>

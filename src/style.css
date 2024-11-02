@@ -3048,7 +3048,7 @@ input[type=submit]:focus {
 
 .desti-item .bg-meta-cat a:hover,
 .desti-item .bg-meta-cat a:focus {
-  background-color: rgba(245, 105, 96, 0.85);
+  background-color: #277e8d;
   color: #ffffff;
 }
 
@@ -3864,6 +3864,9 @@ input[type=submit]:focus {
 >>> Home travel activity section  
 ----------------------------------------------------------------*/
 .activity-section {
+  width: 1300px;
+  max-width: 1300px;
+  margin: 0 auto;
   padding-bottom: 100px;
 }
 

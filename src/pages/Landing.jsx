@@ -140,7 +140,7 @@ function Landing() {
                   flexDirection: "column",
                 }}
               >
-                <a href="#">
+                <a href="https://www.facebook.com/profile.php?id=100090425376184" target="_blank">
                   <img
                     src="./images/happy (9).png"
                     alt=""
@@ -150,7 +150,7 @@ function Landing() {
                     }}
                   ></img>
                 </a>
-                <a href="#">
+                <a href="https://www.linkedin.com/company/gloove-gestor-turistico/?viewAsMember=true" target="_blank">
                   <img
                     src="./images/happy (6).png"
                     alt=""
@@ -160,7 +160,7 @@ function Landing() {
                     }}
                   ></img>
                 </a>
-                <a href="#">
+                {/* <a href="#">
                   <img
                     src="./images/happy (7).png"
                     alt=""
@@ -169,8 +169,8 @@ function Landing() {
                       height: "70px",
                     }}
                   ></img>
-                </a>
-                <a href="#">
+                </a> */}
+                <a href="https://www.instagram.com/gloove_me/" target="_blank">
                   <img
                     src="./images/happy (8).png"
                     alt=""
@@ -194,11 +194,11 @@ function Landing() {
               <div className="trip-search-inner white-bg d-flex">
                 <div className="input-group">
                   <label> Buscar destino* </label>
-                  <input type="text" name="s" placeholder="Enter Destination" />
+                  <input type="text" name="s" placeholder="Destino" />
                 </div>
                 <div className="input-group">
-                  <label> No de personas* </label>
-                  <input type="text" name="s" placeholder="No de personas" />
+                  <label> Nro. de personas* </label>
+                  <input type="text" name="s" placeholder="Nro. de personas" />
                 </div>
                 <div className="input-group width-col-3">
                   <label> Fecha de check-in* </label>
@@ -279,7 +279,7 @@ function Landing() {
                           </div>
                           <div className="desti-content">
                             <h3>
-                              <a href="#" style={{ color: "#156B7A" }}>
+                              <a href="#" style={{ color: "#FAFAFA" }}>
                                 Paradise Home
                               </a>
                             </h3>
@@ -302,7 +302,7 @@ function Landing() {
                           </div>
                           <div className="desti-content">
                             <h3>
-                              <a href="#" style={{ color: "#156B7A" }}>
+                              <a href="#" style={{ color: "#FAFAFA" }}>
                                 Arenales Beach House
                               </a>
                             </h3>
@@ -329,7 +329,7 @@ function Landing() {
                           </div>
                           <div className="desti-content">
                             <h3>
-                              <a href="#" style={{ color: "#156B7A" }}>
+                              <a href="#" style={{ color: "#FAFAFA" }}>
                                 Relaxing Sea Views
                               </a>
                             </h3>
@@ -352,7 +352,7 @@ function Landing() {
                           </div>
                           <div className="desti-content">
                             <h3>
-                              <a href="#" style={{ color: "#156B7A" }}>
+                              <a href="#" style={{ color: "#FAFAFA" }}>
                                 Luxe Beach Three
                               </a>
                             </h3>
@@ -599,7 +599,9 @@ function Landing() {
                   >
                     <div className="video-button">
                       <a id="video-container" data-video-id="IUN664s7N-c">
-                        <i className="fas fa-play"></i>
+                       <a href="https://www.youtube.com/watch?v=06PnWf5fp2A&t=2s" target="_blank">
+                          <i className="fas fa-play"></i>                       
+                       </a>
                       </a>
                     </div>
                   </div>
@@ -748,7 +750,7 @@ function Landing() {
                         {/* <h4>Our 24/7 Emergency Phone Services</h4> */}
                         <h3>
                           <a
-                            href="#"
+                            href="https://api.whatsapp.com/message/WKHHAGYK4P4BB1?autoload=1&app_absent=0"
                             style={{
                               color: "white",
                               width: "fit-content",
@@ -799,7 +801,7 @@ function Landing() {
               </div>
               <div
                 className="activity-inner row"
-                style={{ display: "flex", marginLeft: "8%", marginTop: "20px" }}
+                style={{ display: "flex", justifyContent: 'space-between',marginTop: "20px" }}
               >
                 <div className="" style={{ width: "fit-content" }}>
                   <div
@@ -812,7 +814,7 @@ function Landing() {
                     >
                       <a href="#">
                         <img
-                          src="./images/bot(1).gif"
+                          src="./images/como_funcionamos_img1.png"
                           alt=""
                           style={{ width: "200px" }}
                         />
@@ -839,7 +841,7 @@ function Landing() {
                     >
                       <a href="#">
                         <img
-                          src="./images/bot(2).gif"
+                          src="./images/como_funcionamos_img2.png"
                           alt=""
                           style={{ width: "200px" }}
                         />
@@ -866,7 +868,7 @@ function Landing() {
                     >
                       <a href="#">
                         <img
-                          src="./images/bot(3).gif"
+                          src="./images/como_funcionamos_img3.png"
                           alt=""
                           style={{ width: "200px" }}
                         />
@@ -893,7 +895,7 @@ function Landing() {
                     >
                       <a href="#">
                         <img
-                          src="./images/bot(4).gif"
+                          src="./images/como_funcionamos_img4.png"
                           alt=""
                           style={{ width: "200px" }}
                         />
@@ -920,7 +922,7 @@ function Landing() {
                     >
                       <a href="#">
                         <img
-                          src="./images/bot(5).gif"
+                          src="./images/como_funcionamos_img5.png"
                           alt=""
                           style={{ width: "200px" }}
                         />
@@ -974,7 +976,9 @@ function Landing() {
                     backgroundColor: "#156B7A",
                   }}
                 >
+                  <a href="https://api.whatsapp.com/message/WKHHAGYK4P4BB1?autoload=1&app_absent=0" target="_blank" style={{color: 'white'}}>
                   ¡Quiero saber más!
+                  </a>
                 </button>
               </div>
             </div>
