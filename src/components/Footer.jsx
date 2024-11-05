@@ -128,7 +128,7 @@ const Footer = () => {
                       <img
                         src="./images/GLOOVE_marca_tagline_COL.png"
                         alt=""
-                        style={{ width: "100%", height: "auto" }}
+                        style={{ width: "75%", height: "auto" }}
                       />
                     </Link>
                   </div>
@@ -356,10 +356,11 @@ const Footer = () => {
               </div>
               <div className="col-md-2 text-center">
                 <div className="footer-logo">
-                  <a href="#">
+                  <a href="#" style={{display: 'flex', justifyContent: 'center'}}>
                     <img
                       src="./images/GLOOVE_marca_tagline_blanco.png"
                       alt=""
+                      style={{width: "75%"}}
                     />
                   </a>
                 </div>

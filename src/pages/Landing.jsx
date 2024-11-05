@@ -128,7 +128,7 @@ function Landing() {
               </Carousel>
               {/* <img src="./images/happy (9).png" alt="" style={{width: "50px", height: "50px", backgroundColor: "rgb(21, 107, 122)"}}></img> */}
               <div
-                className=""
+                id="link-redes-sociales"
                 style={{
                   position: "absolute",
                   transform: "translate(-50%, -50%)",
@@ -1087,14 +1087,14 @@ function Landing() {
               </div>
               <div className="special-inner" style={{ marginTop: "50px" }}>
                 <div
-                  className="row"
+                  className="tarifas-container"
                   style={{
                     height: "fit-content",
                     width: "90%",
                     margin: "auto",
                   }}
                 >
-                  <div className="col-md-6 col-lg-6">
+                  <div className="col-md-6 col-lg-6 p-0">
                     <div
                       className="special-item"
                       style={{
@@ -1110,7 +1110,7 @@ function Landing() {
                           marginTop: "0px",
                           width: "fit-content",
                           position: "relative",
-                          padding: "90px 40px",
+                          padding: "40px 40px",
                         }}
                       >
                         <div className="meta-cat">
@@ -1122,7 +1122,7 @@ function Landing() {
                           </a>
                         </h3>
                         <div className="package-price">
-                          <h3 style={{ color: "white", fontWeight: "200" }}>
+                          <h3 className="tarifa-card-text" style={{ color: "white", fontWeight: "200" }}>
                             • Sesión fotográfica <br />
                             • Domotización de la Vivienda <br />
                             • Creación de anuncio <br />
@@ -1192,7 +1192,7 @@ function Landing() {
                           </a>
                         </h3>
                         <div className="package-price">
-                          <h3 style={{ color: "white", fontWeight: "200" }}>
+                          <h3 className="tarifa-card-text" style={{ color: "white", fontWeight: "200" }}>
                             • Sesión fotográfica <br />
                             • Domotización de la Vivienda <br />
                             • Creación de anuncio <br />

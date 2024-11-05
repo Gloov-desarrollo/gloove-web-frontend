@@ -4261,10 +4261,28 @@ input[type=submit]:focus {
   text-align: center;
 }
 
+.tarifas-container {
+  display: flex;
+}
+
+.tarifa-card-text {
+  font-size: 26px;
+}
+
 @media screen and (max-width: 575px) {
   .client-wrap .client-item {
     padding: 10px 20px;
     text-align: center;
+  }
+  #link-redes-sociales {
+    display: none !important;
+  }
+  .tarifas-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .tarifa-card-text {
+    font-size: 16px;
   }
 }
 
@@ -9413,7 +9431,8 @@ product checkout css
 }
 
 .widget a {
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
 .widget .widget-title {
@@ -9651,6 +9670,10 @@ product checkout css
 .widget.widget_tag_cloud .tagcloud a:hover {
   background-color: #2C75BA;
   color: #ffffff;
+}
+
+.widget_recent_post h3{
+  margin-bottom: 20px !important;
 }
 
 .widget.widget_recent_post li {
@@ -10108,6 +10131,11 @@ product checkout css
   }
 }
 
+@media screen and (max-width: 575px) {
+  .widget_recent_post {
+    padding-top: 30px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
 
 .react-multiple-carousel__arrow {
