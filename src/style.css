@@ -614,6 +614,10 @@ a:visited {
   text-transform: uppercase;
 }
 
+.section-heading #behappy-text {
+  font-size: 60px !important;
+}
+
 .section-heading h5 {
   color: #F56960;
   font-size: 15px;
@@ -647,6 +651,10 @@ a:visited {
 .section-heading .dash-style {
   padding-left: 80px;
   position: relative;
+}
+
+.section-heading #behappy-text {
+  font-size: 32px !important;
 }
 
 .section-heading .dash-style:before {
@@ -3448,7 +3456,7 @@ input[type=submit]:focus {
 
 @media screen and (max-width: 575px) {
   .callback-section {
-    margin-bottom: 120px;
+    margin-bottom: 50px;
   }
 }
 
@@ -3555,17 +3563,23 @@ input[type=submit]:focus {
   }
 
   .callback-counter-wrap .counter-content {
-    width: -moz-calc(100% - 40px);
-    width: -webkit-calc(100% - 40px);
-    width: calc(100% - 40px);
-    padding-left: 20px;
-    text-align: right;
+    width: 100%;
+    padding-left: 0px;
+    text-align: center;
+    font-size: 16px;
   }
 }
 
 @media screen and (max-width: 575px) {
   .callback-counter-wrap {
     margin-bottom: 30px;
+  }
+  .callback-section .callback-counter-wrap .counter-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
   }
 }
 
@@ -3588,6 +3602,7 @@ input[type=submit]:focus {
   -ms-flex-align: center;
   align-items: center;
   padding: 35px;
+  margin-top: 10px;
   /* box-shadow: 0 0 20px 20px rgba(34, 170, 34, 1) */
   animation: shadow-star-pulse 1.5s infinite;
 }
@@ -3637,6 +3652,12 @@ input[type=submit]:focus {
 @media screen and (max-width: 575px) {
   .support-area {
     padding: 20px;
+    position: relative;
+    top: 20px;
+  }
+
+  #como-funcionamos-container {
+    margin-top: 120px;
   }
 
   .support-area h3 {
@@ -3927,6 +3948,13 @@ input[type=submit]:focus {
 @media screen and (max-width: 991px) {
   .activity-inner .activity-item {
     margin-bottom: 18px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .activity-inner {
+    margin-top: 0px;
+    flex-direction: column;
   }
 }
 

@@ -69,7 +69,7 @@ function Landing() {
                 dotListClass="custom-dot-list-style"
                 slidesToSlide={1}
               >
-                <div className="home-banner-items">
+                <div className="home-banner-items"  style={{backgroundSize: '100%', backgroundRepeat: "no-repeat", backgroundColor: "rgba(0,0,0,0.3)"}}>
                   <div
                     className="banner-inner-wrap"
                     style={{
@@ -82,7 +82,6 @@ function Landing() {
                       <div className="banner-content text-center">
                         <h2
                           className="banner-title"
-                          style={{ fontSize: "70px" }}
                         >
                           Maximiza el potencial de tu propiedad con Gloove
                         </h2>
@@ -99,12 +98,12 @@ function Landing() {
                   </div>
                   <div className="overlay"></div>
                 </div>
-                <div className="home-banner-items">
+                <div className="home-banner-items" style={{backgroundSize: '100%', backgroundRepeat: "no-repeat", backgroundColor: "rgba(0,0,0,0.2)"}}>
                   <div
                     className="banner-inner-wrap"
                     style={{
                       backgroundImage: "url(./images/slider-2.PNG)",
-                      backgroundSize: "cover !important",
+                      backgroundSize: "cover !important",                      
                     }}
                   ></div>
                   <div className="banner-content-wrap">
@@ -112,7 +111,6 @@ function Landing() {
                       <div className="banner-content text-center">
                         <h2
                           className="banner-title"
-                          style={{ fontSize: "70px" }}
                         >
                           Bienvenidos a nuestras viviendas
                         </h2>
@@ -613,10 +611,10 @@ function Landing() {
                         Maximizamos tu éxito y satisfacción
                       </h3>
                       <h2
+                        id="behappy-text"
                         style={{
                           textAlign: "right",
                           paddingRight: "10%",
-                          fontSize: "60px",
                           letterSpacing: "2px",
                           wordSpacing: "5px",
                         }}
@@ -650,7 +648,6 @@ function Landing() {
                           </span> */}
                           <span
                             className="counter-text"
-                            style={{ fontSize: "20px" }}
                           >
                             Aperturas <br />
                             inteligentes
@@ -671,7 +668,6 @@ function Landing() {
                           </span> */}
                           <span
                             className="counter-text"
-                            style={{ fontSize: "20px" }}
                           >
                             Soporte Integral
                             <br /> 24/7
@@ -692,7 +688,6 @@ function Landing() {
                           </span> */}
                           <span
                             className="counter-text"
-                            style={{ fontSize: "20px" }}
                           >
                             Autogestión
                           </span>
@@ -712,7 +707,6 @@ function Landing() {
                           </span> */}
                           <span
                             className="counter-text"
-                            style={{ fontSize: "20px" }}
                           >
                             Optimización del
                             <br /> precio
@@ -726,8 +720,6 @@ function Landing() {
                         borderRadius: "80px",
                         backgroundColor: "#22AA22",
                         padding: "10px 50px",
-                        marginTop: "10px",
-                        marginLeft: "20%",
                         // boxShadow: "0 0 20px 20px rgba(34, 170, 34, 1)"
                       }}
                     >
@@ -769,39 +761,17 @@ function Landing() {
           </section>
           {/* <!-- callback html end --> */}
           {/* <!-- Home activity section html start --> */}
-          <section className="activity-section" style={{ padding: "0px" }}>
-            <div className="container">
+          <section className="activity-section w-100" style={{ padding: "0px" }}>
+            <div className="container" id="como-funcionamos-container">
               <div
-                className="section-heading text-center"
-                style={{ marginBottom: "0px" }}
+                className="text-center"
+                style={{ marginBottom: "50px", marginTop: '25px' }}
               >
-                <div className="row">
-                  {/* <h3
-                    className="dash-style"
-                    style={{
-                      color: "#156B7A",
-                      textAlign: "center",
-                      width: "fit-content",
-                      margin: "auto",
-                      marginBottom: "40px",
-                    }}
-                  >
-                    Nuestro Éxito en el Alojamiento Turístico
-                  </h3> */}
-                  <div className="col-lg-8 offset-lg-2">
-                    <h3>¿CÓMO FUNCIONAMOS?</h3>
-                    {/* <p>
-                      Mollit voluptatem perspiciatis convallis elementum
-                      corporis quo veritatis aliquid blandit, blandit torquent,
-                      odit placeat. Adipiscing repudiandae eius cursus? Nostrum
-                      magnis maxime curae placeat.
-                    </p> */}
-                  </div>
-                </div>
+              <h3 className="text-center">¿CÓMO FUNCIONAMOS?</h3>
               </div>
               <div
-                className="activity-inner row"
-                style={{ display: "flex", justifyContent: 'space-between',marginTop: "20px" }}
+                className="activity-inner w-100"
+                style={{ display: "flex", justifyContent: 'space-evenly', alignItems: 'center', marginTop: "20px" }}
               >
                 <div className="" style={{ width: "fit-content" }}>
                   <div
@@ -812,13 +782,11 @@ function Landing() {
                       className="activity-icon"
                       style={{ marginBottom: "40px" }}
                     >
-                      <a href="#">
                         <img
                           src="./images/como_funcionamos_img1.png"
                           alt=""
                           style={{ width: "200px" }}
                         />
-                      </a>
                     </div>
                     <div className="activity-content">
                       <h5 style={{ color: "#156B7A" }}>
@@ -839,13 +807,11 @@ function Landing() {
                       className="activity-icon"
                       style={{ marginBottom: "40px" }}
                     >
-                      <a href="#">
                         <img
                           src="./images/como_funcionamos_img2.png"
                           alt=""
                           style={{ width: "200px" }}
                         />
-                      </a>
                     </div>
                     <div className="activity-content">
                       <h5 style={{ color: "#156B7A" }}>
@@ -866,13 +832,11 @@ function Landing() {
                       className="activity-icon"
                       style={{ marginBottom: "40px" }}
                     >
-                      <a href="#">
                         <img
                           src="./images/como_funcionamos_img3.png"
                           alt=""
                           style={{ width: "200px" }}
                         />
-                      </a>
                     </div>
                     <div className="activity-content">
                       <h5 style={{ color: "#156B7A" }}>
@@ -893,13 +857,11 @@ function Landing() {
                       className="activity-icon"
                       style={{ marginBottom: "40px" }}
                     >
-                      <a href="#">
                         <img
                           src="./images/como_funcionamos_img4.png"
                           alt=""
                           style={{ width: "200px" }}
                         />
-                      </a>
                     </div>
                     <div className="activity-content">
                       <h5 style={{ color: "#156B7A" }}>
@@ -920,13 +882,11 @@ function Landing() {
                       className="activity-icon"
                       style={{ marginBottom: "40px" }}
                     >
-                      <a href="#">
                         <img
                           src="./images/como_funcionamos_img5.png"
                           alt=""
                           style={{ width: "200px" }}
                         />
-                      </a>
                     </div>
                     <div className="activity-content">
                       <h5 style={{ color: "#156B7A" }}>
@@ -937,25 +897,6 @@ function Landing() {
                     </div>
                   </div>
                 </div>
-                {/* <div className="col-lg-2 col-md-4 col-sm-5">
-                  <div className="activity-item">
-                    <div className="activity-icon">
-                      <a href="#">
-                        <img
-                          src="./images/icon11.png"
-                          alt=""
-                          style={{ width: "auto" }}
-                        />
-                      </a>
-                    </div>
-                    <div className="activity-content">
-                      <h4>
-                        <a href="#">Exploring</a>
-                      </h4>
-                      <p>25 Destination</p>
-                    </div>
-                  </div>
-                </div> */}
               </div>
               <div
                 style={{
@@ -1020,7 +961,6 @@ function Landing() {
                         <figure style={{ padding: "0px 20px" }}>
                           <img
                             src="./images/client-logo-1.png"
-                            style={{ scale: "1.8" }}
                             alt=""
                             draggable={false}
                           />
@@ -1030,7 +970,6 @@ function Landing() {
                         <figure style={{ padding: "0px 20px" }}>
                           <img
                             src="./images/client-logo-2.png"
-                            style={{ scale: "1.8" }}
                             alt=""
                             draggable={false}
                           />
@@ -1040,7 +979,6 @@ function Landing() {
                         <figure style={{ padding: "0px 20px" }}>
                           <img
                             src="./images/client-logo-3.png"
-                            style={{ scale: "1.8" }}
                             alt=""
                             draggable={false}
                           />
@@ -1050,7 +988,6 @@ function Landing() {
                         <figure style={{ padding: "0px 20px" }}>
                           <img
                             src="./images/client-logo-4.png"
-                            style={{ scale: "1.8" }}
                             alt=""
                             draggable={false}
                           />
@@ -1060,7 +997,6 @@ function Landing() {
                         <figure style={{ padding: "0px 20px" }}>
                           <img
                             src="./images/client-logo-5.png"
-                            style={{ scale: "1.8" }}
                             alt=""
                             draggable={false}
                           />

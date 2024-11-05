@@ -365,10 +365,10 @@ const Header = ({ head, description }) => {
                     {/* logo close */}
                   </div>
                 </div>
-                <div className="de-flex-col header-col-mid">
+                <div className="de-flex-col header-col-mid" style={{flex: '1'}}>
                   <ul id="mainmenu" style={{ height: "auto" }}>
                     <li>
-                      <Link to="/" style={{ color: "white", fontSize: "20px" }}> Inicio </Link>
+                      <Link to="/" style={{ color: "white", fontSize: "18px" }}> Inicio </Link>
                       {/* <ul>
                         <li>
                           <a className="menu-item" href="02_dark-index-1.html">
@@ -656,15 +656,13 @@ const Header = ({ head, description }) => {
                     <button
                       className="btn-main"
                       onClick={handleBookNowClick}
-                      style={{
-                        backgroundColor: "white",
-                        color: "#156B7A",
-                        fontSize: "20px",
-                        padding: "10px 30px",
-                        borderRadius: "25px",
-                        display: "flex",
-                        gap: "10px",
-                      }}
+                      // style={{
+                      //   backgroundColor: "white",
+                      //   color: "#156B7A",
+                      //   borderRadius: "25px",
+                      //   display: "flex",
+                      //   gap: "10px",
+                      // }}
                     >
                       {/* <img
                     src="./images/user-img.png"

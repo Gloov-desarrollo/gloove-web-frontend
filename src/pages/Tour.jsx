@@ -129,7 +129,6 @@ function Tour() {
                       <div className="banner-content text-center">
                         <h2
                           className="banner-title"
-                          style={{ fontSize: "70px" }}
                         >
                           Maximiza el potencial de tu propiedad con Gloove
                         </h2>
@@ -158,7 +157,6 @@ function Tour() {
                       <div className="banner-content text-center">
                         <h2
                           className="banner-title"
-                          style={{ fontSize: "70px" }}
                         >
                           Maximiza el potencial de tu propiedad con Gloove
                         </h2>

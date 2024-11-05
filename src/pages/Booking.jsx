@@ -123,7 +123,7 @@ function Booking() {
                 <div className="banner-content-wrap">
                   <div className="container">
                     <div className="banner-content text-center">
-                      <h2 className="banner-title" style={{ fontSize: "70px" }}>
+                      <h2 className="banner-title" id="banner-title">
                         Maximiza el potencial de tu propiedad con Gloove
                       </h2>
                       <p>
@@ -149,7 +149,7 @@ function Booking() {
                 <div className="banner-content-wrap">
                   <div className="container">
                     <div className="banner-content text-center">
-                      <h2 className="banner-title" style={{ fontSize: "70px" }}>
+                      <h2 className="banner-title">
                         Maximiza el potencial de tu propiedad con Gloove
                       </h2>
                       <p>

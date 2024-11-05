@@ -15847,6 +15847,18 @@ a.read_more i {
 
 .menu_side_area {
     margin-left: 20px;
+    display: flex;
+    gap: 30px;
+}
+
+.menu_side_area .btn-main {
+    background-color: white !important;
+    color: #156B7A;
+    font-size: 18px;
+    padding: 10px 30px;
+    border-radius: 25px;
+    display: flex;
+    gap: 10px;
 }
 
 .rtl .menu_side_area {
@@ -17772,7 +17784,8 @@ img {
     }
 
     .menu_side_area .btn-main {
-        display: none;
+        font-size: 14px;
+        padding: 10px;
     }
 
     .de_table .tr .td:nth-child(4),
@@ -18693,7 +18706,8 @@ img {
         right: 0;
         text-align: right;
         z-index: 0;
-        display: block;
+        display: flex;
+        gap: 10px;
     }
 
     header .container {
