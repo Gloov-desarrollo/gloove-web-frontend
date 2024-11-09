@@ -4073,6 +4073,9 @@ input[type=submit]:focus {
 .special-inner {
   margin-top: -30px;
   margin-bottom: -30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .special-item {
@@ -4269,6 +4272,15 @@ input[type=submit]:focus {
   font-size: 26px;
 }
 
+@media screen and (max-width: 979px) {
+  .tarifas-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 @media screen and (max-width: 575px) {
   .client-wrap .client-item {
     padding: 10px 20px;
@@ -4276,10 +4288,6 @@ input[type=submit]:focus {
   }
   #link-redes-sociales {
     display: none !important;
-  }
-  .tarifas-container {
-    display: flex;
-    flex-direction: column;
   }
   .tarifa-card-text {
     font-size: 16px;
@@ -4292,10 +4300,21 @@ input[type=submit]:focus {
 .subscribe-section {
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover !important;
   background-attachment: fixed;
-  padding: 75px 0 75px;
+  padding: 30px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
+}
+
+.subscribe-section .container {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  padding: 0px 20px 0px 20px;
 }
 
 .home .subscribe-section {
@@ -10171,4 +10190,29 @@ product checkout css
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #8d8d8d;
+}
+
+
+.carousel-container {
+  max-width: 100%;
+  margin: auto;
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-slide img {
+  width: 100%;
+  max-width: 150px; /* Tamaño máximo de la imagen */
+  transition: transform 0.3s ease;
+}
+
+/* Ajustes de escala en pantallas más grandes */
+@media (min-width: 768px) {
+  .carousel-slide img {
+    transform: scale(1.2); /* Escalado en pantallas medianas y grandes */
+  }
 }

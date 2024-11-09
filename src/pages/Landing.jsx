@@ -28,13 +28,41 @@ function Landing() {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
+  // const responsive2 = {
+  //   desktop: {
+  //     breakpoint: { max: 3000, min: 0 },
+  //     items: 5,
+  //     slidesToSlide: 1, // optional, default to 1.
+  //   },
+  // };
+
+  const images = [
+    './images/client-logo-1.png',
+    './images/client-logo-2.png',
+    './images/client-logo-3.png',
+    './images/client-logo-4.png',
+    './images/client-logo-5.png',
+  ];
+
   const responsive2 = {
-    desktop: {
-      breakpoint: { max: 3000, min: 0 },
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 1024 },
       items: 5,
-      slidesToSlide: 1, // optional, default to 1.
+    },
+    desktop: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 768, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
     },
   };
+
   const handleBookNowClick = () => {
     // navigate("/booking");
     window.location.href = "/booking";
@@ -931,8 +959,8 @@ function Landing() {
             className="subscribe-section"
             style={{
               backgroundImage: "url(./images/19.png)",
+              backgroundSize: "cover",
               marginTop: "100px",
-              padding: "75px",
             }}
           >
             <div className="container">
@@ -945,121 +973,33 @@ function Landing() {
                     className="client-wrap client-slider secondary-bg"
                     style={{ backgroundColor: "initial" }}
                   >
-                    <Carousel
-                      className="home-slider"
-                      responsive={responsive2}
-                      showDots={false}
-                      infinite={true}
-                      autoPlay={true}
-                      keyBoardControl={false}
-                      arrows={false}
-                      autoPlaySpeed={3500}
-                      dotListClass="custom-dot-list-style"
-                      slidesToSlide={1}
-                    >
-                      <div className="client-item">
-                        <figure style={{ padding: "0px 20px" }}>
-                          <img
-                            src="./images/client-logo-1.png"
-                            alt=""
-                            draggable={false}
-                          />
-                        </figure>
-                      </div>
-                      <div className="client-item">
-                        <figure style={{ padding: "0px 20px" }}>
-                          <img
-                            src="./images/client-logo-2.png"
-                            alt=""
-                            draggable={false}
-                          />
-                        </figure>
-                      </div>
-                      <div className="client-item">
-                        <figure style={{ padding: "0px 20px" }}>
-                          <img
-                            src="./images/client-logo-3.png"
-                            alt=""
-                            draggable={false}
-                          />
-                        </figure>
-                      </div>
-                      <div className="client-item">
-                        <figure style={{ padding: "0px 20px" }}>
-                          <img
-                            src="./images/client-logo-4.png"
-                            alt=""
-                            draggable={false}
-                          />
-                        </figure>
-                      </div>
-                      <div className="client-item">
-                        <figure style={{ padding: "0px 20px" }}>
-                          <img
-                            src="./images/client-logo-5.png"
-                            alt=""
-                            draggable={false}
-                          />
-                        </figure>
-                      </div>
-                      <div className="client-item">
-                        <figure style={{ padding: "0px 20px" }}>
-                          <img
-                            src="./images/client-logo-1.png"
-                            style={{ scale: "1.8" }}
-                            alt=""
-                            draggable={false}
-                          />
-                        </figure>
-                      </div>
-                      <div className="client-item">
-                        <figure style={{ padding: "0px 20px" }}>
-                          <img
-                            src="./images/client-logo-2.png"
-                            style={{ scale: "1.8" }}
-                            alt=""
-                            draggable={false}
-                          />
-                        </figure>
-                      </div>
-                      <div className="client-item">
-                        <figure style={{ padding: "0px 20px" }}>
-                          <img
-                            src="./images/client-logo-3.png"
-                            style={{ scale: "1.8" }}
-                            alt=""
-                            draggable={false}
-                          />
-                        </figure>
-                      </div>
-                      <div className="client-item">
-                        <figure style={{ padding: "0px 20px" }}>
-                          <img
-                            src="./images/client-logo-4.png"
-                            style={{ scale: "1.8" }}
-                            alt=""
-                            draggable={false}
-                          />
-                        </figure>
-                      </div>
-                      <div className="client-item">
-                        <figure style={{ padding: "0px 20px" }}>
-                          <img
-                            src="./images/client-logo-5.png"
-                            style={{ scale: "1.8" }}
-                            alt=""
-                            draggable={false}
-                          />
-                        </figure>
-                      </div>
-                    </Carousel>
+                  {/* Carousel de aliados estratégicos */}
+                  <Carousel
+                        responsive={responsive2}
+                        showDots={false}
+                        infinite={true}
+                        autoPlay={true}
+                        autoPlaySpeed={3000}
+                        customTransition="all 0.5s"
+                        transitionDuration={500}
+                        containerClass="carousel-container"
+                        removeArrowOnDeviceType={["tablet", "mobile"]}
+                        dotListClass="custom-dot-list-style"
+                        itemClass="carousel-item-padding-40-px"
+                      >
+                        {images.map((src, index) => (
+                          <div key={index} style={{ display: 'flex', justifyContent: 'center' }}>
+                            <img src={src} alt={`Client logo ${index + 1}`} style={{ width: '100%', maxWidth: '200px' }} />
+                          </div>
+                        ))}
+                      </Carousel>
                   </div>
                 </div>
               </div>
             </div>
           </section>
           <section className="special-section">
-            <div className="container">
+            <div className="container p-0">
               <div className="section-heading text-center">
                 <div className="row">
                   <div className="col-lg-8 offset-lg-2">
@@ -1076,22 +1016,18 @@ function Landing() {
                     <h3 style={{ color: "black", wordSpacing: "5px" }}>
                       NUESTRAS TARIFAS
                     </h3>
-                    {/* <p>
-                      Mollit voluptatem perspiciatis convallis elementum
-                      corporis quo veritatis aliquid blandit, blandit torquent,
-                      odit placeat. Adipiscing repudiandae eius cursus? Nostrum
-                      magnis maxime curae placeat.
-                    </p> */}
                   </div>
                 </div>
               </div>
-              <div className="special-inner" style={{ marginTop: "50px" }}>
+              <div className="special-inner flex items-center justify-center" style={{ marginTop: "10px" }}>
                 <div
-                  className="tarifas-container"
+                  className="tarifas-container p-0"
                   style={{
                     height: "fit-content",
                     width: "90%",
-                    margin: "auto",
+                    margin: "0",
+                    position: "relative",
+                    left: "-10px"
                   }}
                 >
                   <div className="col-md-6 col-lg-6 p-0">
@@ -1099,7 +1035,7 @@ function Landing() {
                       className="special-item"
                       style={{
                         display: "flex",
-                        justifyContent: "right",
+                        justifyContent: "center",
                         height: "100%",
                       }}
                     >
@@ -1164,12 +1100,12 @@ function Landing() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-md-6 col-lg-6">
+                  <div className="col-md-6 col-lg-6 p-0">
                     <div
                       className="special-item"
                       style={{
                         display: "flex",
-                        justifyContent: "left",
+                        justifyContent: "center",
                         height: "100%",
                       }}
                     >
@@ -1183,9 +1119,6 @@ function Landing() {
                           padding: "90px 40px",
                         }}
                       >
-                        <div className="meta-cat">
-                          {/* <a href="#">CANADA</a> */}
-                        </div>
                         <h3>
                           <a href="#" style={{ color: "white" }}>
                             Gestión
@@ -1202,9 +1135,6 @@ function Landing() {
                             • Check-in/check-out <br />
                             • Call center 24H <br />• Gestión diaria de precios
                           </h3>
-                          {/* Price:
-                          <del>$1500</del>
-                          <ins>$1200</ins> */}
                         </div>
                         <div
                           className="badge-dis"
@@ -1217,38 +1147,11 @@ function Landing() {
                         >
                           <span>
                             <strong style={{ color: "#156B7A" }}>15%</strong>
-                            {/* off */}
                           </span>
                         </div>
                       </div>
                     </div>
                   </div>
-                  {/* <div className="col-md-6 col-lg-4">
-                    <div className="special-item">
-                      <figure className="special-img">
-                        <img src="./images/10.png" alt="" />
-                      </figure>
-                      <div className="badge-dis">
-                        <span>
-                          <strong>15%</strong>
-                          off
-                        </span>
-                      </div>
-                      <div className="special-content">
-                        <div className="meta-cat">
-                          <a href="#">MALAYSIA</a>
-                        </div>
-                        <h3>
-                          <a href="#">Sunset view of beautiful lakeside city</a>
-                        </h3>
-                        <div className="package-price">
-                          Price:
-                          <del>$1800</del>
-                          <ins>$1476</ins>
-                        </div>
-                      </div>
-                    </div>
-                  </div> */}
                 </div>
               </div>
             </div>
