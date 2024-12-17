@@ -400,7 +400,7 @@ function CarSingle() {
                           type="text"
                           name="PickupLocation"
                           // onFocus="geolocate()"
-                          placeholder="Enter your pickup location"
+                          placeholder="Cantidad de adultos"
                           id="autocomplete"
                           autoComplete="off"
                           className="form-control"
@@ -417,7 +417,7 @@ function CarSingle() {
                           type="text"
                           name="DropoffLocation"
                           // onFocus="geolocate()"
-                          placeholder="Enter your dropoff location"
+                          placeholder="Cantida de nińos"
                           id="autocomplete2"
                           autoComplete="off"
                           className="form-control"
@@ -429,7 +429,7 @@ function CarSingle() {
                         </div>
                       </div>
                       <div className="col-lg-12 mb20">
-                        <h5>Pick Up Date &amp; Time</h5>
+                        <h5>Fecha &amp; Hora de ingreso</h5>
                         <div className="date-time-field">
                           <input
                             type="text"
@@ -499,7 +499,7 @@ function CarSingle() {
                         </div>
                       </div>
                       <div className="col-lg-12 mb20">
-                        <h5>Return Date &amp; Time</h5>
+                        <h5>Fecha &amp; Hora de salida</h5>
                         <div className="date-time-field">
                           <input
                             type="text"
