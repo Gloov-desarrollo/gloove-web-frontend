@@ -291,7 +291,7 @@ function Tour() {
                     filteredIndex.map((index) => {
                       const accom = accommodations[index];
                       const desc = descriptions[index];
-                      console.log(desc);
+                      // console.log("Desc", desc);
                       return <div className="col-lg-4 col-md-6" key={index}>
                       <div className="package-wrap">
                         <figure className="feature-image">

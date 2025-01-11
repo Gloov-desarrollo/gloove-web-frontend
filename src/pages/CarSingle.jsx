@@ -23,6 +23,7 @@ import BookingCardGroup from "components/BookingCardGroup";
 import GoogleMapReact from 'google-map-react';
 import DatePicker, { Calendar, DateObject } from "react-multi-date-picker";
 import DatePanel from "react-multi-date-picker/plugins/date_panel"
+import axios from "axios";
 
 
 function CarSingle() {
@@ -78,12 +79,72 @@ function CarSingle() {
     } catch (err) { }
   }, []);
 
-  const handleBookNowClick = () => {
-    const price = 265;
+  // const handleBookNowClick = () => {
+  //   const price = 265;
+  //   const pickupDate = pickupDateRef.current.value;
+  //   const returnDate = returnDateRef.current.value;
+  //   const pickupTime = pickupTimeRef.current.value;
+  //   const returnTime = returnTimeRef.current.value;
+  //   if (
+  //     adults === "" ||
+  //     children === "" ||
+  //     pickupTime === "Select time" ||
+  //     returnTime === "Select time"
+  //   ) {
+  //     toast.error("Complete todos los archivos.");
+  //   } else {
+  //     const bookingData = {
+  //       adaptedURI,
+  //       company,
+  //       price,
+  //       adults,
+  //       children,
+  //       pickupDate: pickupDate + " " + pickupTime,
+  //       returnDate: returnDate + " " + returnTime,
+  //     };
+
+  //     let bookingMenu = localStorage.getItem("booking")
+  //       ? JSON.parse(localStorage.getItem("booking"))
+  //       : [];
+
+  //     let updatedBookingList = [];
+
+  //     // Check if bookingMenu exists
+  //     if (bookingMenu) {
+  //       // Replace existing booking with the same adaptedURI or add the new one
+  //       const isExisting = bookingMenu.some(
+  //         (item) => item.adaptedURI === bookingData.adaptedURI
+  //       );
+  //       if (isExisting) {
+  //         // Map through the array and replace the item with the same adaptedURI
+  //         updatedBookingList = bookingMenu.map((item) =>
+  //           item.adaptedURI === bookingData.adaptedURI ? bookingData : item
+  //         );
+  //       } else {
+  //         // If there's no match, just add the new booking data to the list
+  //         updatedBookingList = [...bookingMenu, bookingData];
+  //       }
+  //     } else {
+  //       // If bookingMenu doesn't exist, start a new array with bookingData
+  //       updatedBookingList = [bookingData];
+  //     }
+
+  //     // Update local storage with the new or modified booking list
+  //     localStorage.setItem("booking", JSON.stringify(updatedBookingList));
+  //     setLocalBookingMenu(updatedBookingList);
+  //     toast.success("Agregado exitosamente a la cesta del carrito.");
+  //   }
+  // };
+
+  const handleBookNowClick = async () => {
     const pickupDate = pickupDateRef.current.value;
     const returnDate = returnDateRef.current.value;
     const pickupTime = pickupTimeRef.current.value;
     const returnTime = returnTimeRef.current.value;
+
+    console.log("Datos")
+    console.log(pickupDate, returnDate, pickupTime, returnTime)
+
     if (
       adults === "" ||
       children === "" ||
@@ -91,49 +152,46 @@ function CarSingle() {
       returnTime === "Select time"
     ) {
       toast.error("Complete todos los archivos.");
-    } else {
-      const bookingData = {
-        adaptedURI,
-        company,
-        price,
-        adults,
-        children,
-        pickupDate: pickupDate + " " + pickupTime,
-        returnDate: returnDate + " " + returnTime,
-      };
-
-      let bookingMenu = localStorage.getItem("booking")
-        ? JSON.parse(localStorage.getItem("booking"))
-        : [];
-
-      let updatedBookingList = [];
-
-      // Check if bookingMenu exists
-      if (bookingMenu) {
-        // Replace existing booking with the same adaptedURI or add the new one
-        const isExisting = bookingMenu.some(
-          (item) => item.adaptedURI === bookingData.adaptedURI
-        );
-        if (isExisting) {
-          // Map through the array and replace the item with the same adaptedURI
-          updatedBookingList = bookingMenu.map((item) =>
-            item.adaptedURI === bookingData.adaptedURI ? bookingData : item
-          );
-        } else {
-          // If there's no match, just add the new booking data to the list
-          updatedBookingList = [...bookingMenu, bookingData];
-        }
-      } else {
-        // If bookingMenu doesn't exist, start a new array with bookingData
-        updatedBookingList = [bookingData];
-      }
-
-      // Update local storage with the new or modified booking list
-      localStorage.setItem("booking", JSON.stringify(updatedBookingList));
-      setLocalBookingMenu(updatedBookingList);
-      toast.success("Agregado exitosamente a la cesta del carrito.");
+      return; // Salir si la validación falla
     }
-  };
+
+    const credentials = {
+        Language: "ES", // Cambia al idioma que necesites
+        UserName: "tu_usuario",
+        Password: "tu_contraseña"
+    };
+
+    const bookingData = {
+        ArrivalDate: `${pickupDate} ${pickupTime}`, // Fecha y hora de recogida
+        DepartureDate: `${returnDate} ${returnTime}`, // Fecha y hora de devolución
+        AccommodationCode: adaptedURI, // Código de la propiedad
+        LoginGA: company, // Cambia esto según tu configuración
+        UserCode: "idUsuario", // Asegúrate de obtener el ID del usuario
+        ClientData: {
+            Name: "Nombre del Cliente", // Debes obtener y gestionar los datos del cliente
+            Surname: "Apellido del Cliente",
+            Email: "email@cliente.com",
+            DNI: "DNI del Cliente"
+        },
+        PaymentMethod: 1 // Método de pago, puede que debas gestionar esto
+    };
+
+    const requestBody = {
+        Credentials: credentials,
+        BookingData: bookingData
+    };
+
+    try {
+        const response = await axios.post('https://ws.avantio.com/soap/vrmsConnectionServices.php', requestBody);
+        console.log('Reserva exitosa:', response.data);
+        toast.success('Reserva realizada exitosamente!');
+    } catch (error) {
+        console.error('Error al realizar la reserva:', error);
+        toast.error('Error al realizar la reserva. Intenta nuevamente.');
+    }
+};
+
+  
   const handleClearList = (value) => {
     if (value === -1) {
       setLocalBookingMenu([]);

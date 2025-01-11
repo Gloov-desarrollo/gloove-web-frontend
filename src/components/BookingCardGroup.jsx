@@ -193,7 +193,7 @@ function BookingCardGroup() {
             }).map((index, id) => {
               const accom = accommodations[index];
               const desc = descriptions[index];
-              console.log(desc);
+              // console.log("Desc",desc);
               return (
                 <div
                   style={{
