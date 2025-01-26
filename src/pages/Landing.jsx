@@ -21,6 +21,11 @@ import { WhatsAppIcon } from "components/WhatsAppIcon";
 function Landing() {
   const navigate = useNavigate();
 
+  const [destination, setDestination] = useState("");
+  const [rooms, setRooms] = useState("");
+  const [adults, setAdults] = useState("");
+  const [children, setChildren] = useState("");
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 0 },
@@ -64,11 +69,36 @@ function Landing() {
   };
 
   const handleBookNowClick = () => {
-    // navigate("/booking");
-    window.location.href = "/booking";
+    navigate("/booking");
   };
+
   const handleLogoClick = () => {
-    window.location.href = "/";
+    navigate("/");
+  };
+
+  // Función para manejar el envío del formulario de búsqueda
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    // Validar que el campo Destino esté lleno
+    if (!destination.trim()) {
+      alert("Por favor, ingresa un destino.");
+      return;
+    }
+
+    // Opcional: Validar otros campos según necesidad
+    // Por ejemplo, asegurarse de que las cantidades sean números válidos
+
+    // Preparar los parámetros de búsqueda
+    const searchParams = {
+      destination: destination.trim(),
+      rooms,
+      adults,
+      children,
+    };
+
+    // Navegar a /booking con los filtros como query parameters
+    navigate(`/booking?${new URLSearchParams(searchParams).toString()}`);
   };
 
   return (
@@ -97,7 +127,7 @@ function Landing() {
                 dotListClass="custom-dot-list-style"
                 slidesToSlide={1}
               >
-                <div className="home-banner-items"  style={{backgroundSize: '100%', backgroundRepeat: "no-repeat", backgroundColor: "rgba(0,0,0,0.3)"}}>
+                <div className="home-banner-items" style={{ backgroundSize: '100%', backgroundRepeat: "no-repeat", backgroundColor: "rgba(0,0,0,0.3)" }}>
                   <div
                     className="banner-inner-wrap"
                     style={{
@@ -118,20 +148,17 @@ function Landing() {
                           tranquilamente de tus beneficios y tengas tranquilidad
                           total
                         </p>
-                        {/* <a href="#" className="button-primary">
-                          CONTINUE READING
-                        </a> */}
                       </div>
                     </div>
                   </div>
                   <div className="overlay"></div>
                 </div>
-                <div className="home-banner-items" style={{backgroundSize: '100%', backgroundRepeat: "no-repeat", backgroundColor: "rgba(0,0,0,0.2)"}}>
+                <div className="home-banner-items" style={{ backgroundSize: '100%', backgroundRepeat: "no-repeat", backgroundColor: "rgba(0,0,0,0.2)" }}>
                   <div
                     className="banner-inner-wrap"
                     style={{
                       backgroundImage: "url(./images/slider-2.PNG)",
-                      backgroundSize: "cover !important",                      
+                      backgroundSize: "cover !important",
                     }}
                   ></div>
                   <div className="banner-content-wrap">
@@ -143,18 +170,14 @@ function Landing() {
                           Bienvenidos a nuestras viviendas
                         </h2>
                         <p>
-                        ¡Disfruta de tus vacaciones con Gloove tu Alojamiento Turístico!
+                          ¡Disfruta de tus vacaciones con Gloove tu Alojamiento Turístico!
                         </p>
-                        {/* <a href="#" className="button-primary">
-                          CONTINUE READING
-                        </a> */}
                       </div>
                     </div>
                   </div>
                   <div className="overlay"></div>
                 </div>
               </Carousel>
-              {/* <img src="./images/happy (9).png" alt="" style={{width: "50px", height: "50px", backgroundColor: "rgb(21, 107, 122)"}}></img> */}
               <div
                 id="link-redes-sociales"
                 style={{
@@ -186,16 +209,6 @@ function Landing() {
                     }}
                   ></img>
                 </a>
-                {/* <a href="#">
-                  <img
-                    src="./images/happy (7).png"
-                    alt=""
-                    style={{
-                      width: "70px",
-                      height: "70px",
-                    }}
-                  ></img>
-                </a> */}
                 <a href="https://www.instagram.com/gloove_me/" target="_blank">
                   <img
                     src="./images/happy (8).png"
@@ -215,53 +228,104 @@ function Landing() {
             className="trip-search-section shape-search-section"
             style={{ padding: "0px" }}
           >
-            <div className="slider-shape" style={{marginTop: "-110px"}}></div>
+            <div className="slider-shape" style={{ marginTop: "-110px" }}></div>
             <div className="container">
               <div className="trip-search-inner white-bg d-flex">
-                <div className="input-group">
-                  <label> Buscar destino* </label>
-                  <input type="text" name="s" placeholder="Destino" />
-                </div>
-                <div className="input-group">
-                  <label> Nro. de personas* </label>
-                  <input type="text" name="s" placeholder="Nro. de personas" />
-                </div>
-                <div className="input-group width-col-3">
-                  <label> Fecha de check-in* </label>
-                  <i className="far fa-calendar"></i>
-                  <input
-                    className="input-date-picker"
-                    type="text"
-                    name="s"
-                    placeholder="MM / DD / YY"
-                    autoComplete="off"
-                    readOnly="readonly"
-                  />
-                </div>
-                <div className="input-group width-col-3">
-                  <label> Fecha de check-out* </label>
-                  <i className="far fa-calendar"></i>
-                  <input
-                    className="input-date-picker"
-                    type="text"
-                    name="s"
-                    placeholder="MM / DD / YY"
-                    autoComplete="off"
-                    readOnly="readonly"
-                  />
-                </div>
-                <div className="input-group width-col-3">
-                  <label className="screen-reader-text"> Buscar </label>
-                  <input
-                    type="submit"
-                    name="travel-search"
-                    value="Buscar"
-                    style={{ fontSize: "20px" }}
-                  />
-                </div>
+                {/* Formulario de Búsqueda */}
+                <form className="w-100" onSubmit={handleSearch}>
+                  <div className="row">
+                    {/* Destino */}
+                    <div className="input-group col-md-3 mb-3 d-flex flex-column">
+                      <label htmlFor="destination">Buscar destino*</label>
+                      <input
+                        type="text"
+                        id="destination"
+                        name="destination"
+                        placeholder="Destino"
+                        value={destination}
+                        onChange={(e) => setDestination(e.target.value)}
+                        required
+                        className="form-control w-100"
+                      />
+                    </div>
+                    {/* Número de Habitaciones */}
+                    <div className="input-group col-md-3 mb-3 d-flex flex-column">
+                      <label htmlFor="rooms">Nro. de habitaciones*</label>
+                      <select
+                        id="rooms"
+                        name="rooms"
+                        value={rooms}
+                        onChange={(e) => setRooms(e.target.value)}
+                        required
+                        className="form-control w-100"
+                      >
+                        <option value="">Seleccione</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5+</option>
+                      </select>
+                    </div>
+                    {/* Cantidad de Adultos */}
+                    <div className="input-group col-md-3 mb-3 d-flex flex-column">
+                      <label htmlFor="adults">Cantidad de adultos*</label>
+                      <select
+                        id="adults"
+                        name="adults"
+                        value={adults}
+                        onChange={(e) => setAdults(e.target.value)}
+                        required
+                        className="form-control w-100"
+                      >
+                        <option value="">Seleccione</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5+</option>
+                      </select>
+                    </div>
+                    {/* Cantidad de Niños */}
+                    <div className="input-group col-md-3 mb-3 d-flex flex-column">
+                      <label htmlFor="children">Cantidad de niños</label>
+                      <select
+                        id="children"
+                        name="children"
+                        value={children}
+                        onChange={(e) => setChildren(e.target.value)}
+                        className="form-control w-100"
+                      >
+                        <option value="">Seleccione</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5+</option>
+                      </select>
+                    </div>
+                  {/* Botón Buscar */}
+                  <div className="input-group d-flex justify-content-center align-items-center">
+                      <label className="screen-reader-text" htmlFor="search-button">
+                        Buscar
+                      </label>
+                      <button
+                        type="submit"
+                        name="travel-search"
+                        className="btn w-100"
+                        style={{ fontSize: "14px", height: '56px', backgroundColor: '#156B7A', color: 'white' }}
+                      >
+                        Buscar
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                {/* Fin del Formulario */}
               </div>
             </div>
           </div>
+          {/* <!-- Home search field html end --> */}
           {/* <!-- search search field html end --> */}
           <section className="destination-section">
             <div className="container">

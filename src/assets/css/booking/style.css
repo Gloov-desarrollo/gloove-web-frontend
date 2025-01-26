@@ -19004,9 +19004,9 @@ img {
     opacity: 0.8;
 }
 
-#section-cards {
+/* #section-cards {
     width: 780px;
-}
+} */
 
 @media only screen and (min-width: 2180px) {
     #section-cards {

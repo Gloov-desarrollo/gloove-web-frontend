@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "react-multi-carousel/lib/styles.css";
-import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserGroup, faPhone, faBars } from "@fortawesome/free-solid-svg-icons"; // Añadido faBars para el botón de menú
-import Carousel from "react-multi-carousel";
-
+import { faUserGroup, faPhone, faBars, faBed } from "@fortawesome/free-solid-svg-icons"; 
+import { useNavigate, useLocation } from "react-router-dom";
 import "./../assets/css/booking/bootstrap.min.css";
 import "./../assets/css/booking/mdb.min.css";
 import "./../assets/css/booking/plugins.css";
@@ -14,6 +12,7 @@ import "./../assets/css/booking/colors/scheme-01.css";
 import { getAccomodations, getDescriptions } from "apis/apis";
 import Header from "components/Header";
 import BookingCardGroup from "components/BookingCardGroup";
+import Footer from "components/Footer";
 
 import {
   faUtensils,
@@ -622,7 +621,7 @@ function Booking() {
                                         {accom["Features"]["Distribution"]["PeopleCapacity"]}
                                       </span>
                                       <FontAwesomeIcon
-                                        icon={faPhone}
+                                        icon={faBed}
                                         style={{ marginLeft: "10px" }}
                                       />
                                       <span style={{ marginLeft: "3px" }}>
@@ -721,6 +720,7 @@ function Booking() {
           </div>
         </section>
         <BookingCardGroup />
+        <Footer/>
       </div>
     </div>
   );
