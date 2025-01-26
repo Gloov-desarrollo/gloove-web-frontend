@@ -26,6 +26,8 @@ import {
 
 function Booking() {
   const navigate = useNavigate();
+  const location = useLocation();
+  
   const [accommodations, setAccommodations] = useState(null);
   const [descriptions, setDescriptions] = useState(null);
   const [criteria, setCriteria] = useState({
@@ -79,16 +81,11 @@ function Booking() {
 
   useEffect(() => {
     if (accommodations && descriptions) {
-      const companies = [
-        ...new Set(accommodations.map((item) => item["Company"])),
-      ];
-      const localizations = [
-        ...new Set(
-          accommodations.map(
-            (item) => item["LocalizationData"]["Region"]["Name"]
-          )
-        ),
-      ];
+      // Extract unique companies and locations
+      const companies = [...new Set(accommodations.map((item) => item["Company"]))];
+      const localizations = [...new Set(accommodations.map((item) => item["LocalizationData"]["Region"]["Name"]))];
+
+      // Update criteria with companies and locations
       setCriteria((prev) => ({
         ...prev,
         company: {
@@ -100,10 +97,42 @@ function Booking() {
           selected: "",
         },
       }));
+
+      // Store data in localStorage
       localStorage.setItem("accom", JSON.stringify(accommodations));
       localStorage.setItem("desc", JSON.stringify(descriptions));
+
+      // Parse query parameters
+      const queryParams = new URLSearchParams(location.search);
+      const destination = queryParams.get('destination') || '';
+      const rooms = queryParams.get('rooms') || '';
+      const adults = queryParams.get('adults') || '';
+      const children = queryParams.get('children') || '';
+
+      // Check if the destination from query params exists in the location list
+      const isValidDestination = destination && localizations.includes(destination);
+
+      // Update criteria with query parameters
+      setCriteria((prev) => ({
+        ...prev,
+        location: {
+          ...prev.location,
+          selected: isValidDestination ? destination : '',
+        },
+        rooms,
+        adults,
+        children,
+      }));
     }
-  }, [accommodations, descriptions]);
+  }, [accommodations, descriptions, location.search]);
+
+  // Apply filters whenever criteria changes
+  useEffect(() => {
+    if (accommodations && descriptions) {
+      handleSearch();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [criteria]);
 
   const handleCheckboxChange = (item) => {
     setCriteria((prevCriteria) => {
@@ -409,7 +438,7 @@ function Booking() {
                       ))}
                     </div>
                     {/* Botón Buscar */}
-                    <button
+                    {/* <button
                       type="button"
                       className="btn btn-success w-100 py-2"
                       style={{fontSize: "16px"}}
@@ -424,7 +453,7 @@ function Booking() {
                       }}
                     >
                       Buscar
-                    </button>
+                    </button> */}
                   </form>
                 </div>
               </div>
@@ -561,7 +590,7 @@ function Booking() {
                       ))}
                     </div>
                     {/* Botón Buscar */}
-                    <button
+                    {/* <button
                       type="button"
                       className="btn btn-danger w-100"
                       onClick={handleSearch}
@@ -573,7 +602,7 @@ function Booking() {
                       }}
                     >
                       Buscar
-                    </button>
+                    </button> */}
                   </form>
                 </div>
               </div>
