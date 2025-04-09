@@ -8,3 +8,33 @@ main {
   min-height: 80vh;
   background-color: rgb(20, 180, 116);
 }
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.date-time-field input[type=text] {
+  width: 100%;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+  width: 100%;
+}
+
+.booking-form div {
+  width: 100%;
+}
+
+.booking-form button {
+  background-color: #156B7A;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  outline: none;
+}

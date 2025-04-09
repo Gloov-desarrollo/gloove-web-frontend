@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import LogoImage from '../assets/images/GLOOVE_marca_tagline_blanco.png'
 
 const Header = ({ head, description }) => {
   const handleBookNowClick = () => {
@@ -348,14 +349,14 @@ const Header = ({ head, description }) => {
                       {/* <a href="index.html"> */}
                       <img
                         className="logo-1"
-                        src="images/GLOOVE_marca_tagline_blanco.png"
+                        src={LogoImage}
                         alt=""
                         onClick={handleLogoClick}
                         style={{ width: "150px", height: "60px" }}
                       />
                       <img
                         className="logo-2"
-                        src="images/GLOOVE_marca_tagline_blanco.png"
+                        src={LogoImage}
                         alt=""
                         onClick={handleLogoClick}
                         style={{ width: "150px", height: "60px" }}
