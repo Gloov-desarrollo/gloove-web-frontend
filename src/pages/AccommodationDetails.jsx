@@ -594,7 +594,7 @@ function AccommodationDetails() {
           </div>
         </div>
         {/* Booking Card Group */}
-        <BookingCardGroup />
+        {/* <BookingCardGroup /> */}
       </section>
       <Footer />
     </div>
