@@ -606,7 +606,7 @@ function Booking() {
             </div>
           </div>
         </section>
-        <BookingCardGroup />
+        {/* <BookingCardGroup /> */}
         <Footer />
       </div>
     </div>

@@ -38,3 +38,29 @@ main {
   border: none;
   outline: none;
 }
+
+#mainmenu {
+  display: none;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#mainmenu.open {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  #mainmenu {
+    display: flex !important;
+    flex-direction: row;
+  }
+  #menu-btn {
+    display: none;
+  }
+}
+
+#mainmenu li a {
+  font-size: 20px;
+}
