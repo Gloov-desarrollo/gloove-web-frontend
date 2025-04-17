@@ -19,6 +19,7 @@ const Header = ({ head, description }) => {
         style={{ backgroundColor: "#156B7A" }}
       >
         <div className="top-header"></div>
+        <div className="bottom-header"></div>
         <div className="container">
           <div className="row">
             <div className="col-md-12">
