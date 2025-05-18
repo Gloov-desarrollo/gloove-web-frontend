@@ -1,6 +1,6 @@
 export const getAccomodations = async () => {
   // const url = `https://bird-rested-wombat.ngrok-free.app/accommodations`;
-  const url = `https://gloove-api-avantio.onrender.com/get-accommodations`;
+  const url = `https://gloove-api-avantio-4gf3.onrender.com/get-accommodations`;
   const res = await fetch(url, { method: "get",
   headers: {
     "Content-Type": "application/json",

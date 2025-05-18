@@ -31,7 +31,7 @@ function BookingCardGroup() {
       const detailedList = await Promise.all(
         list.map(item =>
           axios
-            .get(`https://gloove-api-avantio.onrender.com/accommodations-add/${item.id}`)
+            .get(`https://gloove-api-avantio-4gf3.onrender.com/accommodations-add/${item.id}`)
             .then(res => res.data)
             .catch(err => {
               console.error("Error fetching detail for id", item.id, err);
