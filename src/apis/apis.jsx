@@ -12,7 +12,7 @@ export const getAccomodations = async () => {
 
 export const getDescriptions = async () => {
   // const url = `https://bird-rested-wombat.ngrok-free.app/descriptions`;
-  const url = `https://gloove-web-back-test.vercel.app/descriptions`;
+  const url = `https://gloove-web-backend.onrender.com/descriptions`;
   const res = await fetch(url, { method: "get",
   headers: {
     "Content-Type": "application/json",
