@@ -195,7 +195,7 @@ function AccommodationDetails() {
 
   useEffect(() => {
     axios
-      .get(`https://gloove-api-avantio-4gf3.onrender.com/accommodations-add/${id}`)
+      .get(`https://gloove-api-avantio.onrender.com/accommodations-add/${id}`)
       .then((response) => {
         console.log("Response", response);
         setAccommodation(response.data.data);

@@ -82,7 +82,7 @@ const CheckoutForm = () => {
     // Descomentar para enviar la reserva a la API
     try {
       console.log("Llega aca ", params)
-      const response = await axios.post("https://gloove-api-avantio-4gf3.onrender.com/set-booking", params);
+      const response = await axios.post("https://gloove-api-avantio.onrender.com/set-booking", params);
       // setSuccessMessage("Reserva confirmada con éxito.");
       console.log(response.data);
     } catch (err) {
