@@ -403,7 +403,7 @@ function AccommodationDetails() {
                       />
                     </div>
                     <div className="col-lg-12 mb20">
-                      <h5>Fecha &amp; Hora de ingreso</h5>
+                      <h5>Fecha de ingreso</h5>
                       <div className="date-time-field">
                         <DatePicker
                           selected={pickupDate}
@@ -417,7 +417,7 @@ function AccommodationDetails() {
                       </div>
                     </div>
                     <div className="col-lg-12 mb20">
-                      <h5>Fecha &amp; Hora de salida</h5>
+                      <h5>Fecha de salida</h5>
                       <div className="date-time-field">
                         <DatePicker
                           selected={returnDate}
