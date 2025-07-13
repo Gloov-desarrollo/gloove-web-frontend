@@ -6,13 +6,13 @@ import axios from "axios";
 
 const CheckoutForm = () => {
   const { state } = useLocation();
-  const { id, accommodation, adults, children, pickupDate, pickupTime, returnDate, returnTime } = state;
+  const { id, accommodation, adults, children, pickupDate, returnDate } = state;
 
   useEffect(() => {
-    console.log("Accommodation ID: ", id);
+    console.log("Accommodation ID:", id);
     console.log("Accommodation", accommodation);
-  }, [accommodation]);
-  
+  }, [accommodation, id]);
+
   const [formData, setFormData] = useState({
     arrivalDate: pickupDate,
     departureDate: returnDate,
@@ -79,12 +79,13 @@ const CheckoutForm = () => {
 
     console.log("Body a enviar", params);
 
-    // Descomentar para enviar la reserva a la API
     try {
-      console.log("Llega aca ", params)
-      const response = await axios.post("https://gloove-api-avantio.onrender.com/set-booking", params);
-      // setSuccessMessage("Reserva confirmada con éxito.");
+      const response = await axios.post(
+        "https://gloove-api-avantio.onrender.com/set-booking",
+        params
+      );
       console.log(response.data);
+      setSuccessMessage("Reserva confirmada con éxito.");
     } catch (err) {
       setError("Hubo un error al procesar la reserva. Intenta nuevamente.");
       console.error(err);
@@ -92,6 +93,10 @@ const CheckoutForm = () => {
       setLoading(false);
     }
   };
+
+  // Función helper para formatear fecha en DD/MM/YYYY
+  const formatDate = (date) =>
+    date ? new Date(date).toLocaleDateString() : "";
 
   return (
     <div className="checkout-form">
@@ -101,11 +106,19 @@ const CheckoutForm = () => {
         {error && <div className="alert alert-danger">{error}</div>}
         {successMessage && <div className="alert alert-success">{successMessage}</div>}
         <form onSubmit={handleSubmit} className="booking-form">
-          {/* Contenedor principal en dos columnas */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
-            {/* Columna Izquierda: Información de la Reserva (solo lectura) */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "20px",
+            }}
+          >
+            {/* --- Información de la Reserva (solo lectura) --- */}
             <fieldset className="reservation-info">
-              <legend style={{ paddingBottom: "20px" }}>Información de la Reserva</legend>
+              <legend style={{ paddingBottom: "20px" }}>
+                Información de la Reserva
+              </legend>
+
               <div className="form-group">
                 <label htmlFor="accommodationName">Alojamiento:</label>
                 <input
@@ -124,28 +137,31 @@ const CheckoutForm = () => {
                 <input id="children" type="number" value={children} readOnly />
               </div>
               <div className="form-group">
-                <label htmlFor="pickupDateTime">Ingreso:</label>
+                <label htmlFor="pickupDate">Ingreso:</label>
                 <input
-                  id="pickupDateTime"
+                  id="pickupDate"
                   type="text"
-                  value={`${pickupDate ? new Date(pickupDate).toLocaleString() : ""} ${pickupTime}`}
+                  value={formatDate(pickupDate)}
                   readOnly
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="returnDateTime">Salida:</label>
+                <label htmlFor="returnDate">Salida:</label>
                 <input
-                  id="returnDateTime"
+                  id="returnDate"
                   type="text"
-                  value={`${returnDate ? new Date(returnDate).toLocaleString() : ""} ${returnTime}`}
+                  value={formatDate(returnDate)}
                   readOnly
                 />
               </div>
             </fieldset>
 
-            {/* Columna Derecha: Información del Cliente */}
+            {/* --- Información del Cliente --- */}
             <fieldset className="client-info">
-              <legend style={{ paddingBottom: "20px" }}>Información del Cliente</legend>
+              <legend style={{ paddingBottom: "20px" }}>
+                Información del Cliente
+              </legend>
+
               <div className="form-group">
                 <label htmlFor="clientName">Nombre:</label>
                 <input
