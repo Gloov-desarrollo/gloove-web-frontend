@@ -33,6 +33,7 @@
     "react-router-dom": "^6.17.0",
     "react-scripts": "^5.0.1",
     "react-toastify": "^10.0.5",
+    "sweetalert2": "^11.22.2",
     "swiper": "^11.1.14",
     "web-vitals": "^1.1.1"
   },

@@ -9,6 +9,7 @@ import Header from "components/Header";
 import BookingCardGroup from "components/BookingCardGroup";
 import Footer from "components/Footer";
 import LoaderFullScreen from "components/LoaderFullScreen/LoaderFullScreen";
+import Swal from "sweetalert2";
 
 function AccommodationDetails() {
   const { id } = useParams();
@@ -24,8 +25,8 @@ function AccommodationDetails() {
   const [pickupDate, setPickupDate] = useState(null);
   const [returnDate, setReturnDate] = useState(null);
   // Estados para la hora se mantienen en selects
-  const [pickupTime, setPickupTime] = useState("");
-  const [returnTime, setReturnTime] = useState("");
+  // const [pickupTime, setPickupTime] = useState("");
+  // const [returnTime, setReturnTime] = useState("");
   // Estado para controlar si la descripción está expandida
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -33,11 +34,11 @@ function AccommodationDetails() {
   const unavailableRanges =
     availabilities.length > 0
       ? availabilities
-          .filter((a) => a.status === "UNAVAILABLE")
-          .map((a) => ({
-            start: new Date(a.from),
-            end: new Date(a.to),
-          }))
+        .filter((a) => a.status === "UNAVAILABLE")
+        .map((a) => ({
+          start: new Date(a.from),
+          end: new Date(a.to),
+        }))
       : [];
 
   // Funciones de traducción para distribución
@@ -217,19 +218,27 @@ function AccommodationDetails() {
 
   const handleBookNowClick = (e) => {
     e.preventDefault();
+
+    if (
+      !adults.trim() ||
+      !children.trim() ||
+      !pickupDate ||
+      !returnDate
+    ) {
+      Swal.fire("Completa todos los datos", "", "warning");
+      return;
+    }
+
+    if (returnDate < pickupDate) {
+      Swal.fire("La fecha de salida debe ser igual o posterior a la de ingreso", "", "error");
+      return;
+    }
+
     navigate("/checkout", {
-      state: {
-        id,
-        accommodation,
-        adults,
-        children,
-        pickupDate,
-        pickupTime,
-        returnDate,
-        returnTime,
-      },
+      state: { id, accommodation, adults, children, pickupDate, returnDate },
     });
   };
+
 
   const descriptionText = gallery?.description?.[0].text || "";
   const truncateText = (text, limit) =>
@@ -400,12 +409,10 @@ function AccommodationDetails() {
                           selected={pickupDate}
                           onChange={(date) => setPickupDate(date)}
                           excludeDateIntervals={unavailableRanges}
-                          dateFormat="yyyy-MM-dd HH:mm"
-                          placeholderText="Seleccione la fecha y hora de ingreso"
+                          dateFormat="yyyy-MM-dd"
+                          placeholderText="Seleccione la fecha de ingreso"
                           className="form-control w-100"
-                          showTimeSelect
-                          timeFormat="HH:mm"
-                          timeIntervals={30}
+                          minDate={new Date()}
                         />
                       </div>
                     </div>
@@ -416,12 +423,10 @@ function AccommodationDetails() {
                           selected={returnDate}
                           onChange={(date) => setReturnDate(date)}
                           excludeDateIntervals={unavailableRanges}
-                          dateFormat="yyyy-MM-dd HH:mm"
-                          placeholderText="Seleccione la fecha y hora de salida"
+                          dateFormat="yyyy-MM-dd"
+                          placeholderText="Seleccione la fecha de salida"
                           className="form-control w-100"
-                          showTimeSelect
-                          timeFormat="HH:mm"
-                          timeIntervals={30}
+                          minDate={pickupDate || new Date()}
                         />
                       </div>
                     </div>
