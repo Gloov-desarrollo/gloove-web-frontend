@@ -61,6 +61,20 @@ main {
   }
 }
 
+@media (max-width: 768px) {
+
+  .label-my-account {
+    display: none;
+  }
+  #mainmenu {
+    display: flex;
+    flex-direction: column;
+  }
+  /* #menu-btn {
+    display: none;
+  } */
+}
+
 #mainmenu li a {
   font-size: 20px;
 }

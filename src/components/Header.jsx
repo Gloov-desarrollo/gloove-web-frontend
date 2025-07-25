@@ -47,13 +47,13 @@ const Header = ({ head, description }) => {
                 <div className="de-flex-col header-col-mid" style={{flex: '1'}}>
                   <ul id="mainmenu" style={{ height: "auto" }}>
                     <li>
-                      <Link to="/" style={{ color: "white", fontSize: "18px" }}> Inicio </Link>
+                      <Link reloadDocument to="/" style={{ color: "white", fontSize: "18px" }}> Inicio </Link>
                     </li>
                     <li>
-                    <Link to="/booking" style={{ color: "white", fontSize: "20px" }}> Reservas </Link>
+                      <Link reloadDocument to="/booking" style={{ color: "white", fontSize: "20px" }}> Reservas </Link>
                     </li>
                     <li>
-                    <Link to="/tour" style={{ color: "white", fontSize: "20px" }}> Experiencias </Link>
+                      <Link reloadDocument to="/tour" style={{ color: "white", fontSize: "20px" }}> Experiencias </Link>
                     </li>
                     <li>
                       <a href="https://gloove.me/sobre-nosotros/" target="_blank" style={{ color: "white", fontSize: "20px" }}> Sobre nosotros</a>
@@ -80,7 +80,7 @@ const Header = ({ head, description }) => {
                           marginTop: "4px",
                         }}
                       />
-                      Mi cuenta
+                      <span className="label-my-account">Mi cuenta</span>
                     </button>
                     <span id="menu-btn" />
                   </div>

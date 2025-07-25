@@ -143,7 +143,7 @@ const Footer = () => {
                   >
                     SIGUENOS EN:
                   </h3>
-                  <ul style={{height: "80%", display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
+                  <ul id="footer-redes-sociales" style={{height: "80%", display: "flex", justifyContent: "space-between"}}>
                     <li
                       style={{
                         display: "flex",

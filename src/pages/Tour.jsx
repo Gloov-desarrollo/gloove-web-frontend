@@ -175,13 +175,12 @@ function Tour() {
               </Carousel>
               {/* <img src="./images/happy (9).png" alt="" style={{width: "50px", height: "50px", backgroundColor: "rgb(21, 107, 122)"}}></img> */}
               <div
-                className=""
+                className="gloove-social-networks"
                 style={{
                   position: "absolute",
                   transform: "translate(-50%, -50%)",
                   top: "50%",
                   right: "0%",
-                  display: "flex",
                   flexDirection: "column",
                 }}
               >

@@ -17740,6 +17740,14 @@ img {
     .slider_text {
         padding-top: 0px;
     }
+
+    .react-multiple-carousel__arrow--right {
+        right: -2%;
+    }
+
+    .react-multiple-carousel__arrow--left {
+        left: 0%;
+    }
 }
 
 @media only screen and (max-width: 1090px) {
@@ -18988,13 +18996,9 @@ img {
     }
 }
 
-.react-multiple-carousel__arrow--left {
-    left: 0%;
-}
 
-.react-multiple-carousel__arrow--right {
-    right: -2%;
-}
+
+
 
 .react-multi-carousel-track {
     margin-bottom: 32px;
