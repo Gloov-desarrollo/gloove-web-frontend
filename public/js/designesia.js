@@ -1823,6 +1823,17 @@
                  mobile_menu_show = 0;
              }
          })
+        //  jQuery('.menu-link').on("click", function() {
+        //     if (mobile_menu_show == 0) {
+        //         jQuery('header').addClass('menu-open');
+        //         jQuery('header').css('height',$(window).innerHeight());
+        //         mobile_menu_show = 1;
+        //     } else {
+        //        jQuery('header').removeClass('menu-open');
+        //        jQuery('header').css('height','auto');
+        //         mobile_menu_show = 0;
+        //     }
+        //  })
          jQuery("a.btn").on("click", function(evn) {
              if (this.href.indexOf('#') != -1) {
                  evn.preventDefault();
