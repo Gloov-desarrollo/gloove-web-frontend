@@ -1,38 +1,136 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartLine, faClock, faExclamationTriangle, faFileAlt, faSearch, faStar, faArrowUp, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine, faClock, faExclamationTriangle, faFileAlt, faSearch, faStar, faArrowUp, faPlus, faMinus, faLightbulb, faPalette, faBoxOpen, faHandshake } from '@fortawesome/free-solid-svg-icons';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import './../assets/css/booking/LandingPage.css';
 
 // --- SECCIÓN 1: HERO ---
-const HeroSection = () => (
-    <section className="hero-section">
-        <video autoPlay loop muted className="hero-video">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-happy-family-in-a-vacation-home-4856-large.mp4" type="video/mp4" />
-        </video>
-        <div className="hero-overlay"></div>
-        <div className="container hero-content">
-            <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-                Maximiza la rentabilidad de tu vivienda sin mover un dedo.
-            </motion.h1>
-            <motion.h2 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.8 }}>
-                Te instalamos domótica valorada en 400€ gratis y solo cobramos cuando tú ganas. Empieza a rentabilizar tu propiedad con riesgo cero.
-            </motion.h2>
-            <motion.a href="#calculator" className="hero-cta-button" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 0.8 }}>
-                Calcula tus ingresos potenciales (Gratis)
-            </motion.a>
-        </div>
-        <div className="trust-bar">
-            <span>Publicamos en:</span>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Airbnb_Logo_B%C3%A9lo.svg" alt="Airbnb" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Booking.com-logo.svg" alt="Booking.com" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Vrbo_logo.svg" alt="Vrbo" />
-        </div>
-    </section>
-);
+const HeroSection = () => {
+    // Lista de logos actualizada
+    const logos = [
+        "/images/airbnb.png", // Logo de Airbnb reemplazado
+        "/images/Booking.com_logo.svg.png",
+        "/images/19001166-0-Muchosol-2016-RGB-Tr.webp",
+        "/images/Holidu-Logo-Horizontal.png",
+        "/images/Homeaway.png"
+    ];
+    const extendedLogos = [...logos, ...logos, ...logos, ...logos];
 
+    const heroTitle = "Maximiza la rentabilidad de tu vivienda sin mover un dedo.";
+    const heroSubtitle = "Te instalamos domótica valorada en 400€ gratis y solo cobramos cuando tú ganas. Empieza a rentabilizar tu propiedad con riesgo cero.";
+
+    // --- Animación de Texto Palabra por Palabra ---
+    const sentenceVariant = {
+        hidden: { opacity: 1 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delay: 0.5,
+                staggerChildren: 0.08,
+            },
+        },
+    };
+
+    const wordVariant = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: 'spring',
+                damping: 12,
+                stiffness: 100,
+            },
+        },
+    };
+    
+    // --- Animación de Flotación ---
+    const floatingVariant = {
+        animate: {
+            y: ["-5px", "5px"],
+            transition: {
+                delay: 2.5, // Empieza después de que el texto aparece
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: 4,
+                ease: "easeInOut"
+            }
+        }
+    };
+
+    return (
+        <section className="hero-section">
+            <video autoPlay loop muted className="hero-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-happy-family-in-a-vacation-home-4856-large.mp4" type="video/mp4" />
+            </video>
+            <div className="hero-overlay"></div>
+            <div className="container hero-content">
+
+                <motion.div variants={floatingVariant} animate="animate">
+                    {/* Título animado */}
+                    <motion.h1
+                        className="hero-title"
+                        variants={sentenceVariant}
+                        initial="hidden"
+                        animate="visible"
+                        aria-label={heroTitle}
+                    >
+                        {heroTitle.split(" ").map((word, index) => (
+                            <motion.span
+                                key={index}
+                                variants={wordVariant}
+                                style={{ display: 'inline-block', marginRight: '0.5rem' }}
+                            >
+                                {word}
+                            </motion.span>
+                        ))}
+                    </motion.h1>
+
+                    {/* Subtítulo animado */}
+                    <motion.h2
+                        className="hero-subtitle"
+                        variants={sentenceVariant} // Reutilizamos la misma variante, pero ajustamos el delay en la transición
+                        initial="hidden"
+                        animate="visible"
+                        aria-label={heroSubtitle}
+                    >
+                         {heroSubtitle.split(" ").map((word, index) => (
+                            <motion.span
+                                key={index}
+                                variants={wordVariant}
+                                style={{ display: 'inline-block', marginRight: '0.4rem' }}
+                            >
+                                {word}
+                            </motion.span>
+                        ))}
+                    </motion.h2>
+                </motion.div>
+
+                {/* Botón CTA */}
+                <motion.a
+                    href="#calculator"
+                    className="hero-cta-button"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 3, duration: 0.8 }}>
+                    Calcula tus ingresos potenciales (Gratis)
+                </motion.a>
+            </div>
+            <div className="logo-scroller">
+                <div className="scroller-title"></div>
+                <div className="scroller__inner">
+                    {extendedLogos.map((logo, index) => (
+                         <div key={index} className="logo-item">
+                            <img src={logo} alt={`logo-${index}`} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
 // --- SECCIÓN 2: PROBLEMA Y PROMESA ---
 const ProblemPromiseSection = () => (
     <section className="landing-page-section">
@@ -70,31 +168,133 @@ const SolutionSection = () => {
     );
 };
 
-// --- SECCIÓN 4: PRUEBA SOCIAL ---
-const ProofSection = () => (
-    <section className="landing-page-section">
-        <div className="container">
-            <h2 className="text-center mb-5">Propietarios como tú ya están ganando más con Gloove.</h2>
-            {/* Aquí iría un Carrusel de Testimonios. Por simplicidad, se muestra uno estático */}
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="testimonial-card">
-                        <img src="https://picsum.photos/seed/owner1/100/100" alt="Propietario" className="testimonial-img" />
-                        <p className="testimonial-quote">"Desde que estoy con Gloove, mi ocupación ha subido un 20% y mis ingresos un 35%. La tranquilidad de la gestión integral no tiene precio."</p>
-                        <div className="testimonial-author">
-                            <strong>Carlos Gómez</strong><br/>
-                            <span>Apartamento de 2 habitaciones en Altea</span>
+// --- NUEVA SECCIÓN: SERVICIOS EXCLUSIVOS ---
+const ExclusiveServicesSection = () => {
+    const services = [
+        {
+            icon: faChartLine,
+            title: "Revenue de Precios",
+            description: "Utilizamos sistemas expertos y análisis de mercado para maximizar cada reserva. Te garantizamos el 100% de optimización para que obtengas siempre el máximo beneficio."
+        },
+        {
+            icon: faLightbulb,
+            title: "Asesoramiento Energético",
+            description: "Nuestro equipo de sostenibilidad analiza y optimiza los consumos de tu vivienda, reduciendo costes y aumentando la eficiencia energética para un mayor rendimiento neto."
+        },
+        {
+            icon: faPalette,
+            title: "Home Staging y Diseño",
+            description: "Creamos espacios irresistibles. Un equipo especializado en diseño de interiores potencia la estética de tu propiedad para atraer a más huéspedes y mejorar su experiencia."
+        },
+        {
+            icon: faBoxOpen,
+            title: "Gestión de Compras y Montaje",
+            description: "Nos encargamos de todo el proceso de puesta a punto: desde la compra y logística del mobiliario hasta el montaje final. Tu vivienda, lista para alquilar sin que te muevas de casa."
+        }
+    ];
+
+    return (
+        <section className="landing-page-section exclusive-services-section bg-light">
+            <div className="container">
+                <h2 className="text-center mb-5">Servicios Exclusivos para todos nuestros clientes</h2>
+                <div className="row">
+                    {services.map((service, index) => (
+                        <div key={index} className="col-lg-3 col-md-6 mb-4">
+                            <motion.div 
+                                className="service-card"
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                            >
+                                <div className="service-icon-container">
+                                    <FontAwesomeIcon icon={service.icon} className="service-icon" />
+                                </div>
+                                <h4>{service.title}</h4>
+                                <p>{service.description}</p>
+                            </motion.div>
                         </div>
-                        <div className="testimonial-metrics">
-                            <span>+35% Ingresos Anuales</span>
-                            <span>+20% Ocupación</span>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
+
+
+// --- SECCIÓN 4: PRUEBA SOCIAL ---
+const ProofSection = () => {
+    const testimonials = [
+        {
+            quote: "Desde que estoy con Gloove, mi ocupación ha subido un 20% y mis ingresos un 35%. La tranquilidad de la gestión integral no tiene precio.",
+            author: "Carlos Gómez",
+            location: "Apartamento de 2 habitaciones en Altea",
+            img: "https://randomuser.me/api/portraits/men/32.jpg",
+            metrics: ["+35% Ingresos Anuales", "+20% Ocupación"],
+            stars: 5
+        },
+        {
+            quote: "El equipo de Gloove es increíblemente profesional. Se encargan de todo y mi apartamento nunca ha estado en mejores manos. ¡Totalmente recomendados!",
+            author: "Laura Pérez",
+            location: "Estudio en Benidorm",
+            img: "https://randomuser.me/api/portraits/women/44.jpg",
+            metrics: ["+40% Ingresos", "98% Ocupación"],
+            stars: 5
+        },
+        {
+            quote: "La tecnología que utilizan es fantástica. La cerradura inteligente y el panel de propietario me dan una tranquilidad y un control que antes no tenía.",
+            author: "Javier Martínez",
+            location: "Chalet en Calpe",
+            img: "https://randomuser.me/api/portraits/men/46.jpg",
+            metrics: ["+25% Beneficios", "Gestión Simplificada"],
+            stars: 4
+        }
+    ];
+
+    const responsive = {
+        superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 1 },
+        desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
+        tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
+        mobile: { breakpoint: { max: 464, min: 0 }, items: 1 }
+    };
+
+    return (
+        <section className="landing-page-section proof-section">
+            <div className="container">
+                <h2 className="text-center mb-5">Propietarios como tú ya están ganando más con Gloove</h2>
+                <Carousel
+                    responsive={responsive}
+                    infinite={true}
+                    autoPlay={true}
+                    autoPlaySpeed={5000}
+                    keyBoardControl={true}
+                    showDots={true}
+                    containerClass="testimonial-carousel"
+                    dotListClass="custom-dot-list-style"
+                    itemClass="testimonial-item"
+                >
+                    {testimonials.map((testimonial, index) => (
+                        <div key={index} className="testimonial-card">
+                            <img src={testimonial.img} alt={testimonial.author} className="testimonial-img" />
+                            <div className="star-rating">
+                                {[...Array(testimonial.stars)].map((_, i) => <FontAwesomeIcon key={i} icon={faStar} />)}
+                                {[...Array(5 - testimonial.stars)].map((_, i) => <FontAwesomeIcon key={i} icon={faStar} className="star-empty" />)}
+                            </div>
+                            <p className="testimonial-quote">"{testimonial.quote}"</p>
+                            <div className="testimonial-author">
+                                <strong>{testimonial.author}</strong><br />
+                                <span>{testimonial.location}</span>
+                            </div>
+                            <div className="testimonial-metrics">
+                                {testimonial.metrics.map((metric, i) => <span key={i} className="metric-tag">{metric}</span>)}
+                            </div>
+                        </div>
+                    ))}
+                </Carousel>
+            </div>
+        </section>
+    );
+};
 
 // --- SECCIÓN 5: EL PROCESO ---
 const ProcessSection = () => (
@@ -110,38 +310,76 @@ const ProcessSection = () => (
     </section>
 );
 
-// --- SECCIÓN 6: OFERTA (TABLA DE PRECIOS) ---
-const OfferSection = () => (
-    <section className="landing-page-section">
-        <div className="container">
-            <h2 className="text-center mb-4">Planes y Precios Transparentes</h2>
-            <table className="table pricing-table">
-                <thead>
-                    <tr>
-                        <th className="feature-name">Característica</th>
-                        <th>Gestión Básica (15%)</th>
-                        <th>Gestión Integral (20%)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td colSpan="3" className="text-center bg-light"><strong>GESTIÓN ONLINE Y HUÉSPEDES</strong></td></tr>
-                    <tr><td className="feature-name">Fotografía Profesional</td><td className="check">✅</td><td className="check">✅</td></tr>
-                    <tr><td className="feature-name">Creación y Gestión de Anuncios</td><td className="check">✅</td><td className="check">✅</td></tr>
-                    <tr><td className="feature-name">Publicación en +25 Portales</td><td className="check">✅</td><td className="check">✅</td></tr>
-                    <tr><td className="feature-name">Atención al Huésped 24/7</td><td className="check">✅</td><td className="check">✅</td></tr>
-                    <tr><td colSpan="3" className="text-center bg-light"><strong>TECNOLOGÍA Y SEGURIDAD</strong></td></tr>
-                    <tr><td className="feature-name">Instalación Domótica (Valor 400€)</td><td className="check">✅</td><td className="check">✅</td></tr>
-                    <tr><td className="feature-name">Panel de Propietario en Tiempo Real</td><td className="check">✅</td><td className="check">✅</td></tr>
-                    <tr><td className="feature-name">Registro de Viajeros (Policía)</td><td className="check">✅</td><td className="check">✅</td></tr>
-                    <tr><td colSpan="3" className="text-center bg-light"><strong>GESTIÓN FÍSICA DE LA PROPIEDAD</strong></td></tr>
-                    <tr><td className="feature-name">Gestión de Limpieza y Lavandería</td><td className="cross">❌</td><td className="check">✅ (Tranquilidad Total)</td></tr>
-                    <tr><td className="feature-name">Gestión de Mantenimiento</td><td className="cross">❌</td><td className="check">✅ (Cero Preocupaciones)</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-);
+// --- SECCIÓN 6: OFERTA (CARTAS DE PRECIOS) ---
+const OfferSection = () => {
+    const plans = [
+        {
+            name: "Gestión Esencial",
+            price: "15%",
+            description: "La solución ideal para gestionar tu presencia online y comunicarte con los huéspedes sin esfuerzo.",
+            features: [
+                { name: "Fotografía Profesional", included: true },
+                { name: "Creación y Gestión de Anuncios", included: true },
+                { name: "Publicación en +25 Portales", included: true },
+                { name: "Atención al Huésped 24/7", included: true },
+                { name: "Instalación Domótica (Valor 400€)", included: true },
+                { name: "Panel de Propietario en Tiempo Real", included: true },
+                { name: "Registro de Viajeros (Policía)", included: true },
+                { name: "Gestión de Limpieza y Lavandería", included: false },
+                { name: "Gestión de Mantenimiento", included: false },
+            ],
+            cta: "Empezar con Esencial"
+        },
+        {
+            name: "Gestión Integral",
+            price: "20%",
+            description: "Delega todo en nosotros. La opción perfecta para una tranquilidad total y cero preocupaciones.",
+            features: [
+                { name: "Fotografía Profesional", included: true },
+                { name: "Creación y Gestión de Anuncios", included: true },
+                { name: "Publicación en +25 Portales", included: true },
+                { name: "Atención al Huésped 24/7", included: true },
+                { name: "Instalación Domótica (Valor 400€)", included: true },
+                { name: "Panel de Propietario en Tiempo Real", included: true },
+                { name: "Registro de Viajeros (Policía)", included: true },
+                { name: "Gestión de Limpieza y Lavandería", included: true, highlight: "Tranquilidad Total" },
+                { name: "Gestión de Mantenimiento", included: true, highlight: "Cero Preocupaciones" },
+            ],
+            cta: "Elegir Gestión Integral",
+            featured: true
+        }
+    ];
 
+    return (
+        <section className="landing-page-section offer-section">
+            <div className="container">
+                <h2 className="text-center mb-5">Planes transparentes para cada necesidad</h2>
+                <div className="row justify-content-center">
+                    {plans.map((plan, index) => (
+                        <div key={index} className="col-lg-5 col-md-6 mb-4">
+                            <div className={`pricing-card ${plan.featured ? 'featured' : ''}`}>
+                                {plan.featured && <div className="featured-badge">Más Popular</div>}
+                                <h3>{plan.name}</h3>
+                                <p className="price">{plan.price}<span>/ de los ingresos</span></p>
+                                <p className="description">{plan.description}</p>
+                                <ul className="features-list">
+                                    {plan.features.map((feature, i) => (
+                                        <li key={i} className={feature.included ? 'included' : 'excluded'}>
+                                            <FontAwesomeIcon icon={feature.included ? faPlus : faMinus} className="feature-icon" />
+                                            {feature.name}
+                                            {feature.highlight && <span className="highlight-text">{feature.highlight}</span>}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <a href="#calculator" className="btn-cta">{plan.cta}</a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
 // --- SECCIÓN 7: CALCULADORA ---
 const CalculatorSection = () => (
     <section id="calculator" className="landing-page-section bg-light">
@@ -171,7 +409,7 @@ const FAQItem = ({ q, a }) => {
                 <span>{q}</span>
                 <FontAwesomeIcon icon={isOpen ? faMinus : faPlus} />
             </button>
-            {isOpen && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="faq-answer"><p>{a}</p></motion.div>}
+            {isOpen && <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="faq-answer"><p>{a}</p></motion.div>}
         </div>
     );
 };
@@ -193,8 +431,8 @@ const FAQSection = () => (
 const FinalPitchSection = () => (
     <section className="landing-page-section text-center" style={{backgroundColor: '#156B7A', color: 'white'}}>
         <div className="container">
-            <h2>¿Listo para empezar a ganar más con menos esfuerzo?</h2>
-            <p className="lead my-4">Deja que nuestro equipo de expertos locales y nuestra tecnología de vanguardia trabajen para ti.</p>
+            <h2 style={{ color: 'white' }}>¿Listo para empezar a ganar más con menos esfuerzo?</h2>
+            <p className="lead my-4" style={{ color: 'white' }}>Deja que nuestro equipo de expertos locales y nuestra tecnología de vanguardia trabajen para ti.</p>
             <a href="#calculator" className="hero-cta-button">Solicitar mi estudio gratuito ahora</a>
         </div>
     </section>
@@ -208,6 +446,7 @@ function LandingPage() {
             <HeroSection />
             <ProblemPromiseSection />
             <SolutionSection />
+            <ExclusiveServicesSection />
             <ProofSection />
             <ProcessSection />
             <OfferSection />

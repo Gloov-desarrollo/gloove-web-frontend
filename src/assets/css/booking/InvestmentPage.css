@@ -1,149 +1,386 @@
 /* src/assets/css/booking/InvestmentPage.css */
 
+/* General Styles */
 .investment-page {
-    padding-top: 80px;
-    padding-bottom: 60px;
     background-color: #f8f9fa;
+    padding-bottom: 60px;
 }
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(rgba(21, 107, 122, 0.8), rgba(21, 107, 122, 0.8)), url('https://picsum.photos/seed/realestate-hero/1200/400') no-repeat center center;
+/* --- SECCIÓN 1: HERO --- */
+.investment-page .hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1992&auto=format&fit=crop') no-repeat center center;
     background-size: cover;
-    padding: 6rem 0;
+    padding: 8rem 0;
     text-align: center;
     color: #fff;
-    margin-bottom: 3rem;
-    border-radius: 0 0 30% 30% / 0 0 20px 20px;
+    border-radius: 0 0 40% 40% / 0 0 30px 30px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    margin-bottom: 4rem;
 }
 
-.hero-section h1 {
-    font-size: 3rem;
-    font-weight: 700;
+.investment-page .hero-section h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
 }
 
-.hero-section p {
+.investment-page .hero-section p {
     font-size: 1.25rem;
-    max-width: 600px;
+    max-width: 650px;
     margin: 1rem auto 0 auto;
 }
 
-/* Property Cards */
+/* --- SECCIÓN 2: OPORTUNIDADES --- */
+.investment-opportunities-section {
+    padding: 0;
+}
+
 .property-card {
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 2rem;
     border: 1px solid #e9ecef;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .property-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
 
-.property-card img {
+.property-image-link {
+    position: relative;
+    display: block;
+}
+
+.property-image {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.property-card:hover .property-image {
+    transform: scale(1.05);
+}
+
+.property-price-tag {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(21, 107, 122, 0.9);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.1rem;
 }
 
 .property-card-body {
     padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.property-card-body h4 {
-    font-weight: 600;
-    color: #333;
+.property-title a {
+    font-weight: 700;
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+.property-title a:hover {
+    color: #156B7A;
 }
 
-.property-card-body .location {
+.property-location {
     color: #6c757d;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .property-metrics {
     display: flex;
     justify-content: space-between;
     border-top: 1px solid #e9ecef;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
+    margin-top: auto;
 }
 
-.metric {
+.metric-item {
     text-align: center;
+    color: #6c757d;
 }
 
-.metric .value {
-    font-weight: 700;
+.metric-item svg { /* Iconos */
     font-size: 1.2rem;
+    margin-bottom: 8px;
     color: #156B7A;
 }
 
-.metric .label {
+.metric-item strong {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    display: block;
+}
+
+.metric-item span {
     font-size: 0.8rem;
     color: #6c757d;
 }
 
-/* Investment Calculator */
-.calculator-section {
-    background-color: #fff;
-    padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.calculator-section h2 {
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 2rem;
-}
-
-.calculator-section .form-label {
+.btn-details {
+    background-color: #156B7A;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
     font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-details:hover {
+    background-color: #115663;
+    color: white;
+}
+
+
+/* --- SECCIÓN 3: VENTAJAS --- */
+.advantages-section {
+    padding: 4rem 0;
+    background-color: #ffffff;
+    margin-top: 4rem;
+}
+
+.advantage-item {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.advantage-item .icon {
+    font-size: 3.5rem;
+    color: #156B7A;
+    margin-bottom: 1.5rem;
+}
+
+.advantage-item h4 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+
+/* --- SECCIÓN 4: TESTIMONIOS INVERSORES --- */
+.investment-testimonial-section {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.testimonial-carousel .react-multi-carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonial-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    margin: 20px;
+    max-width: 750px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-top: 5px solid #156B7A;
+}
+
+.testimonial-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+    border: 4px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.star-rating {
+    color: #ffc107;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.testimonial-quote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.testimonial-author strong {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.testimonial-author span {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.testimonial-metrics {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.metric-tag {
+    background-color: #eaf3f4;
+    color: #156B7A;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.custom-dot-list-style .react-multi-carousel-dot--active button {
+    background: #156B7A !important;
+}
+
+
+/* --- SECCIÓN 5: CALCULADORA --- */
+.calculator-section {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+.calculator-form {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.btn-calculate {
+    background-color: #156B7A;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.btn-calculate:hover {
+    background-color: #115663;
 }
 
 .results-section {
     margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 2px solid #156B7A;
+    padding: 2rem;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #eaf3f4, #d4e1e3);
     text-align: center;
 }
 
 .results-section h3 {
-    font-weight: 600;
+    font-weight: 700;
+    color: #2c3e50;
 }
 
 .results-section .net-profit {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: #28a745;
 }
 
 .results-section .roi {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 700;
     color: #156B7A;
 }
 
-/* Contact Section for Investors */
-.contact-invest-section {
-    background: #ffffff;
-    padding: 3rem;
+
+/* --- SECCIÓN 6: FORMULARIO DE CONTACTO INVERSOR --- */
+.investor-contact-section {
+    padding: 4rem 0;
+    background-color: #eaf3f4;
+}
+
+.disclaimer-box {
+    background-color: #fff;
+    border-left: 5px solid #156B7A;
+    padding: 1.5rem;
     border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.disclaimer-box strong {
+    color: #156B7A;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.investor-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.investor-form .form-control {
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+.interest-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 1rem;
     text-align: center;
-    margin-top: 3rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.interest-group div {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
-.contact-invest-section h2 {
+.btn-interest {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    color: #6c757d;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+.btn-interest.active {
+    background-color: #156B7A;
+    color: #fff;
+    border-color: #156B7A;
+}
+.btn-interest svg {
+    margin-right: 8px;
+}
+
+.btn-submit-investor {
+    background-color: #156B7A;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 50px;
     font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(21, 107, 122, 0.3);
 }
 
-.contact-invest-section p {
-    max-width: 600px;
-    margin: 1rem auto 1.5rem auto;
+.btn-submit-investor:hover {
+    background-color: #115663;
 }
