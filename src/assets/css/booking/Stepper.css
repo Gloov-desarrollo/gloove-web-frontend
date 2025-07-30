@@ -17,4 +17,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-color: #156B7A; /* Color corporativo para el borde */
+  color: #156B7A; /* Color corporativo para el icono */
+}
+
+.stepper .btn:hover {
+  background-color: #156B7A; /* Color corporativo para el fondo en hover */
+  color: #fff; /* Texto blanco en hover */
 }

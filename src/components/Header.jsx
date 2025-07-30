@@ -1,16 +1,26 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import LogoImage from '../assets/images/GLOOVE_marca_tagline_blanco.png'
+import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { Link, useNavigate } from "react-router-dom";
+import LogoImage from '../assets/images/GLOOVE_marca_tagline_blanco.png';
+import { useCart } from '../context/CartContext';
+import './../assets/css/booking/Header.css';
 
-const Header = ({ head, description }) => {
+const Header = () => {
+  const navigate = useNavigate();
+  const { cartCount } = useCart();
+
   const handleBookNowClick = () => {
-    // navigate("/booking");
     window.location.href = "https://gloove-test.vercel.app/login";
   };
+  
   const handleLogoClick = () => {
-    window.location.href = "/";
+    navigate("/");
   };
+
+  const handleCartClick = () => {
+    navigate("/cart");
+  };
+
   return (
     <>
       <header
@@ -46,28 +56,33 @@ const Header = ({ head, description }) => {
                 </div>
                 <div className="de-flex-col header-col-mid" style={{flex: '1'}}>
                   <ul id="mainmenu" style={{ height: "auto" }}>
-                    <li>
-                      <Link to="/" style={{ color: "white", fontSize: "18px" }}> Inicio </Link>
-                    </li>
-                    <li>
-                    <Link to="/booking" style={{ color: "white", fontSize: "20px" }}> Reservas </Link>
-                    </li>
-                    <li>
-                    <Link to="/tour" style={{ color: "white", fontSize: "20px" }}> Experiencias </Link>
-                    </li>
-                    <li>
-                      <a href="https://gloove.me/sobre-nosotros/" target="_blank" style={{ color: "white", fontSize: "20px" }}> Sobre nosotros</a>
-                    </li>
-                    <li>
-                    <a href="https://gloove.me/blog/" style={{ color: "white", fontSize: "20px" }} target="_blank"> Blog</a>
-                    </li>
-                    <li>
-                    <a href="https://gloove.me/contacto/" target="_blank" style={{ color: "white", fontSize: '20px' }} > Contacto </a>
-                    </li>
+                    <li><Link to="/" style={{ color: "white", fontSize: "20px" }}> Inicio </Link></li>
+                    <li><Link to="/booking" style={{ color: "white", fontSize: "20px" }}> Reservas </Link></li>
+                    <li><Link to="/tour" style={{ color: "white", fontSize: "20px" }}> Experiencias </Link></li>
+                    <li><Link to="/investment" style={{ color: "white", fontSize: "20px" }}> Inversión </Link></li> {/* Renombrado */}
+                    <li><a href="https://gloove.me/sobre-nosotros/" target="_blank" rel="noopener noreferrer" style={{ color: "white", fontSize: "20px" }}> Sobre nosotros</a></li>
+                    <li><a href="https://gloove.me/blog/" style={{ color: "white", fontSize: "20px" }} target="_blank" rel="noopener noreferrer"> Blog</a></li>
+                    <li><a href="https://gloove.me/contacto/" target="_blank" rel="noopener noreferrer" style={{ color: "white", fontSize: '20px' }} > Contacto </a></li>
                   </ul>
                 </div>
                 <div className="de-flex-col">
-                  <div className="menu_side_area">
+                  <div className="menu_side_area" style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                    
+                    <button
+                      className="btn-main cart-button"
+                      onClick={handleCartClick}
+                      style={{ padding: '8px 12px', position: 'relative' }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faShoppingCart}
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                        }}
+                      />
+                      {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+                    </button>
+
                     <button
                       className="btn-main"
                       onClick={handleBookNowClick}
@@ -77,7 +92,7 @@ const Header = ({ head, description }) => {
                         style={{
                           width: "20px",
                           height: "20px",
-                          marginTop: "4px",
+                          marginRight: '8px'
                         }}
                       />
                       Mi cuenta

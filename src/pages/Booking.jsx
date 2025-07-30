@@ -98,7 +98,7 @@ function Booking() {
       return {
         ...prev,
         features: {
-          ...prev.features,
+          ...prev,
           checked: checked.includes(feature)
             ? checked.filter((f) => f !== feature)
             : [...checked, feature],
@@ -148,7 +148,7 @@ function Booking() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
-
+  
   return (
     <div id="wrapper">
       <Header />
@@ -172,18 +172,21 @@ function Booking() {
                       value={criteria.rooms}
                       onIncrease={() => setCriteria(prev => ({ ...prev, rooms: prev.rooms + 1 }))}
                       onDecrease={() => setCriteria(prev => ({ ...prev, rooms: Math.max(1, prev.rooms - 1) }))}
+                      iconColor="#156B7A"
                     />
                     <Stepper
                       label="Adultos"
                       value={criteria.adults}
                       onIncrease={() => setCriteria(prev => ({ ...prev, adults: prev.adults + 1 }))}
                       onDecrease={() => setCriteria(prev => ({ ...prev, adults: Math.max(1, prev.adults - 1) }))}
+                      iconColor="#156B7A"
                     />
                     <Stepper
                       label="Niños"
                       value={criteria.children}
                       onIncrease={() => setCriteria(prev => ({ ...prev, children: prev.children + 1 }))}
                       onDecrease={() => setCriteria(prev => ({ ...prev, children: Math.max(0, prev.children - 1) }))}
+                      iconColor="#156B7A"
                     />
                     <div className="mb-3">
                       <h5>Características</h5>
@@ -214,6 +217,10 @@ function Booking() {
                       const hasInternet = data.services?.some((s) => s.type === "INTERNET_ACCESS");
                       const hasParking = data.services?.some((s) => s.type === "PARKING");
                       const hasPool = data.services?.some((s) => s.type === "SWIMMING_POOL");
+                      
+                      // Console.log para depurar el texto de la descripción
+                      console.log(`Card "${accom.name}" description text:`, descriptionText);
+
                       return (
                         <motion.div
                           className="col-lg-6 mb-4"
@@ -222,6 +229,7 @@ function Booking() {
                           initial="hidden"
                           animate="visible"
                           transition={{ duration: 0.5, delay: index * 0.1 }}
+                          whileHover={{ y: -8, scale: 1.03, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
                         >
                           <div className="de-item booking-card h-100">
                             <img src={imageUrl} className="card-img-top" alt={data.name || "imagen"} />
@@ -247,7 +255,9 @@ function Booking() {
                                 </div>
                               </div>
 
-                              <p className="card-description mt-2 flex-grow-1">{descriptionText}</p>
+                              <div className="card-description-container mt-2 flex-grow-1">
+                                <p className="card-description">{descriptionText}</p>
+                              </div>
                               
                               <button className="btn btn-primary w-100 mt-auto" onClick={() => navigate(`/accommodation/${accom.id}`)}>
                                 Ver Detalles

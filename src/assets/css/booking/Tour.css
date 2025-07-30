@@ -1,0 +1,96 @@
+/* src/assets/css/booking/Tour.css */
+
+.tour-page-container {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    background-color: #f8f9fa; /* FONDO BLANCO/GRIS como en Booking */
+    color: #333; /* Texto oscuro por defecto */
+}
+
+.tour-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tour-header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.search-bar-container {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.search-bar-container input {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    color: #333;
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+
+.search-bar-container input::placeholder {
+    color: #aaa;
+}
+.search-bar-container input:focus {
+    background-color: #fff;
+    border-color: #156B7A;
+    box-shadow: 0 0 0 0.2rem rgba(21, 107, 122, 0.25);
+    color: #333;
+}
+
+.experience-row {
+    margin-bottom: 40px;
+}
+
+.experience-row h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    color: #156B7A;
+}
+
+.experience-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 10px;
+    height: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.experience-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.experience-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.experience-card .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 20px 15px 15px 15px;
+}
+
+.experience-card h4 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.react-multi-carousel-list {
+    padding: 10px 0;
+}

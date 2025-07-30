@@ -1,0 +1,68 @@
+/* src/assets/css/booking/PropertyDetailsPage.css */
+
+.property-details-page {
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+
+.property-details-header {
+    margin-bottom: 2rem;
+}
+
+.property-details-header h1 {
+    font-weight: 700;
+    font-size: 2.8rem;
+}
+
+.property-details-header .location {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+.property-details-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.investment-summary-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-top: -80px; /* Solapar con la imagen */
+    position: relative;
+    z-index: 10;
+}
+
+.investment-metrics {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.metric-item .value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #156B7A;
+}
+
+.metric-item .label {
+    color: #6c757d;
+}
+
+.property-description {
+    margin-top: 3rem;
+}
+
+.property-description h3 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.projection-chart {
+    height: 300px; /* Altura para el gráfico */
+    margin-top: 2rem;
+}

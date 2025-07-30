@@ -1,0 +1,121 @@
+/* src/assets/css/booking/RatesAndOffers.css */
+
+.rates-offers-container {
+  max-width: 896px; /* Similar a max-w-4xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+}
+
+.rates-offers-container .main-title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  color: #2d3748; /* gray-800 */
+  margin-bottom: 1.5rem;
+}
+
+/* Sección de Tarifas Diarias */
+.rates-section {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-sm */
+  margin-bottom: 2rem;
+}
+
+.rates-section .section-title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600;
+  color: #4a5568; /* gray-700 */
+  margin-bottom: 1rem;
+}
+
+.rates-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 2rem;
+}
+@media (min-width: 768px) {
+  .rates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.rate-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.rate-item .date-range {
+  color: #718096; /* gray-600 */
+}
+
+.rate-item .price {
+  font-weight: 700;
+  font-size: 1.125rem; /* text-lg */
+  color: #2d3748; /* gray-800 */
+}
+
+/* Sección de Ofertas Especiales */
+.offers-section .section-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700;
+  color: #2d3748; /* gray-800 */
+  margin-bottom: 1rem;
+}
+
+.special-offers-list > *:not(:last-child) {
+    margin-bottom: 1rem; /* space-y-4 */
+}
+
+.offer-card {
+  display: flex;
+  border: 2px solid #68d391; /* border-green-400 */
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+}
+
+.offer-card .offer-details {
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+.offer-card .offer-title {
+  font-weight: 700;
+  font-size: 1.25rem; /* text-xl */
+  color: #2d3748;
+}
+
+.offer-card .offer-validity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #a0aec0; /* gray-500 */
+  margin-top: 0.5rem;
+  font-size: 0.875rem; /* text-sm */
+}
+
+.offer-card .offer-visual {
+  background-color: #68d391; /* bg-green-400 */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: 144px; /* w-36 */
+}
+
+.offer-visual .value {
+  font-weight: 800; /* font-extrabold */
+  font-size: 2.25rem; /* text-4xl */
+}
+
+.offer-visual .label {
+  font-weight: 600; /* font-semibold */
+}

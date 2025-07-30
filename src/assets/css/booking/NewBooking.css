@@ -37,15 +37,28 @@
   color: #333;
 }
 
+.card-description-container {
+  overflow: hidden;
+  flex-grow: 1;
+  min-height: 4.5em; /* Asegura un espacio mínimo para el texto */
+}
+
 .card-description {
   color: #666;
-  flex-grow: 1;
+  /* --- INICIO DE LA SOLUCIÓN DEFINITIVA --- */
+  white-space: normal !important; /* Anula cualquier 'nowrap' de Bootstrap/MDB */
+  word-wrap: break-word;     /* Fuerza el salto de línea del texto */
+  /* --- FIN DE LA SOLUCIÓN DEFINITIVA --- */
+  
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3; /* Propiedad estándar */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.5em;
 }
+
 
 .booking-card .btn-primary {
   background-color: #156B7A;
