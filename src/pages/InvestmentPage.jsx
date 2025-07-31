@@ -72,13 +72,13 @@ const InvestmentOpportunitiesSection = () => {
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                             <div className="property-card">
-                                <Link to={`/property/${property.id}`} className="property-image-link">
+                                <Link to={`/investment/${property.id}`} className="property-image-link">
                                     <img src={property.image} alt={property.title} className="property-image"/>
                                     <div className="property-price-tag">{property.price.toLocaleString('es-ES')}€</div>
                                 </Link>
                                 <div className="property-card-body">
                                     <h5 className="property-title">
-                                        <Link to={`/property/${property.id}`}>{property.title}</Link>
+                                        <Link to={`/investment/${property.id}`}>{property.title}</Link>
                                     </h5>
                                     <p className="property-location">{property.location}</p>
                                     <div className="property-metrics">
@@ -98,7 +98,7 @@ const InvestmentOpportunitiesSection = () => {
                                             <span>Superficie</span>
                                         </div>
                                     </div>
-                                    <Link to={`/property/${property.id}`} className="btn-details">Ver Detalles</Link>
+                                    <Link to={`/investment/${property.id}`} className="btn-details">Ver Detalles</Link>
                                 </div>
                             </div>
                         </motion.div>

@@ -18,6 +18,7 @@ import PaymentPage from 'pages/PaymentPage';
 import ExperienceDetails from 'pages/ExperienceDetails';
 import InvestmentPage from 'pages/InvestmentPage';
 import PropertyDetailsPage from 'pages/PropertyDetailsPage';
+import ContactPage from 'pages/Contact';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="tour-confirm" element={<TourConfirm />} />
         <Route path="cart" element={<ShoppingCart />} />
         <Route path="payment" element={<PaymentPage />} />
+        <Route path="contact" element={<ContactPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

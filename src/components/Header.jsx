@@ -60,9 +60,9 @@ const Header = () => {
                     <li><Link to="/booking" style={{ color: "white", fontSize: "20px" }}> Reservas </Link></li>
                     <li><Link to="/tour" style={{ color: "white", fontSize: "20px" }}> Experiencias </Link></li>
                     <li><Link to="/investment" style={{ color: "white", fontSize: "20px" }}> Inversión </Link></li> {/* Renombrado */}
-                    <li><a href="https://gloove.me/sobre-nosotros/" target="_blank" rel="noopener noreferrer" style={{ color: "white", fontSize: "20px" }}> Sobre nosotros</a></li>
+                    <li><Link to="/about" style={{ color: "white", fontSize: "20px" }}> Sobre nosotros</Link></li>
                     <li><a href="https://gloove.me/blog/" style={{ color: "white", fontSize: "20px" }} target="_blank" rel="noopener noreferrer"> Blog</a></li>
-                    <li><a href="https://gloove.me/contacto/" target="_blank" rel="noopener noreferrer" style={{ color: "white", fontSize: '20px' }} > Contacto </a></li>
+                    <li><Link to="/contact" style={{ color: "white", fontSize: '20px' }} > Contacto </Link></li>
                   </ul>
                 </div>
                 <div className="de-flex-col">
