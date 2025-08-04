@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faEnvelope, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import './../assets/css/booking/ContactPage.css';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 // Componente para un campo del formulario
 const FormInput = ({ type, name, placeholder, icon, value, onChange }) => {
@@ -129,6 +130,3 @@ function ContactPage() {
 }
 
 export default ContactPage;
-
-// Mock faUser icon if not imported elsewhere
-import { faUser } from '@fortawesome/free-solid-svg-icons';
