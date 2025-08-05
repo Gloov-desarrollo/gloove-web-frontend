@@ -1,0 +1,152 @@
+
+.booking-page {
+  background-color: #f8f9fa;
+}
+
+.booking-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px);
+}
+
+.booking-card .card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.booking-card .card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.booking-card .card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.card-description-container {
+  overflow: hidden;
+  flex-grow: 1;
+  min-height: 4.5em; /* Asegura un espacio mínimo para el texto */
+}
+
+.card-description {
+  color: #666;
+  /* --- INICIO DE LA SOLUCIÓN DEFINITIVA --- */
+  white-space: normal !important; /* Anula cualquier 'nowrap' de Bootstrap/MDB */
+  word-wrap: break-word;     /* Fuerza el salto de línea del texto */
+  /* --- FIN DE LA SOLUCIÓN DEFINITIVA --- */
+  
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3; /* Propiedad estándar */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+}
+
+
+.booking-card .btn-primary {
+  background-color: #156B7A;
+  border-color: #156B7A;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+}
+
+.booking-card .btn-primary:hover {
+  background-color: #115562;
+  border-color: #115562;
+}
+
+.booking-filters {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 100px;
+}
+
+.booking-filters h5 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.booking-filters .form-control {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+}
+
+.booking-filters .form-check-input {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.icon-group .d-flex {
+    gap: 1rem;
+}
+
+.icon-group .d-flex .d-flex {
+    gap: 0.5rem;
+}
+
+.skeleton {
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  animation: pulse 1.s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #d0d0d0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
+.skeleton-img {
+  height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.skeleton-title {
+  height: 2rem;
+  width: 60%;
+  margin-bottom: 1rem;
+}
+
+.skeleton-text {
+  height: 1rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-text:last-child {
+  width: 80%;
+}
+
+.skeleton-button {
+    height: 2.5rem;
+    width: 100%;
+    margin-top: 1rem;
+}

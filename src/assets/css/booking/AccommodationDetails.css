@@ -1,0 +1,66 @@
+/* src/assets/css/booking/AccommodationDetails.css */
+
+.details-container {
+  padding: 20px;
+  border-top: 1px solid #eee;
+  margin-top: 30px;
+}
+
+.detail-section {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.detail-section h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #156B7A;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.features-grid, .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #555;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.feature-item .icon {
+  color: #156B7A;
+  margin-right: 12px;
+  font-size: 1.2rem;
+  width: 20px; /* Ancho fijo para alineación */
+  text-align: center;
+}
+
+.observations-section {
+  background-color: #f8f9fa;
+  border-left: 5px solid #156B7A;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.observations-section p {
+  margin-bottom: 10px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.observations-section p:last-child {
+  margin-bottom: 0;
+}

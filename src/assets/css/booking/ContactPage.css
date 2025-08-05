@@ -1,0 +1,186 @@
+/* src/assets/css/booking/ContactPage.css */
+
+.contact-page {
+  background-color: #f8f9fa;
+}
+
+/* --- HERO SECTION --- */
+.contact-hero {
+  position: relative;
+  padding: 80px 0;
+  background-image: url('https://images.pexels.com/photos/4393922/pexels-photo-4393922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.contact-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 25, 40, 0.75);
+}
+
+.contact-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.contact-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+
+.contact-hero .lead {
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin: 1rem auto 0;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.contact-main-content {
+  padding: 80px 0;
+}
+
+/* --- INFO DE CONTACTO --- */
+.contact-info-wrapper {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  height: 100%;
+}
+
+.contact-info-wrapper h3 {
+  font-weight: 700;
+  color: #156B7A;
+  margin-bottom: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: #156B7A;
+  margin-right: 20px;
+  width: 30px;
+  text-align: center;
+}
+
+.contact-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item strong {
+  font-weight: 600;
+  color: #333;
+}
+
+.contact-item span {
+  color: #6c757d;
+}
+
+/* --- FORMULARIO DE CONTACTO --- */
+.contact-form-wrapper {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.contact-form-wrapper h3 {
+  font-weight: 700;
+  color: #156B7A;
+  margin-bottom: 2rem;
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.form-field label {
+  position: absolute;
+  top: 15px;
+  left: 45px;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.form-field .field-icon {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-field textarea {
+    padding: 15px; /* Textarea no necesita espacio para icono */
+}
+
+/* Animación del label */
+.form-field.is-focused label,
+.form-field:not(.is-focused) input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 40px;
+    font-size: 0.85rem;
+    color: #156B7A;
+    background: white;
+    padding: 0 5px;
+}
+.form-field textarea + label {
+    left: 10px;
+}
+.form-field.is-focused textarea + label {
+    left: 10px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: #156B7A;
+  box-shadow: 0 0 0 3px rgba(21, 107, 122, 0.1);
+}
+
+.form-field.is-focused .field-icon {
+    color: #156B7A;
+}
+
+/* Botón de envío */
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  background: #156B7A;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #115663;
+  box-shadow: 0 10px 20px rgba(21, 107, 122, 0.2);
+}

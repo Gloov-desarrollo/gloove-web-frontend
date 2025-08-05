@@ -1,0 +1,68 @@
+/* src/assets/css/booking/PaymentPage.css */
+
+.payment-page {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    background-color: #f8f9fa;
+}
+
+.payment-section {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+.payment-section h3 {
+    font-weight: 600;
+    color: #156B7A;
+    border-bottom: 2px solid #156B7A;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.payment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+.payment-item:last-child {
+    border-bottom: none;
+}
+
+.payment-item-details {
+    flex-grow: 1;
+}
+
+.payment-item-details h5 {
+    font-weight: 600;
+}
+
+.payment-item-details p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.payment-item-price {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.payment-notice {
+    background-color: #eef7ff;
+    border: 1px solid #b7ddf8;
+    color: #0b5e9f;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.payment-summary {
+    position: sticky;
+    top: 100px;
+}

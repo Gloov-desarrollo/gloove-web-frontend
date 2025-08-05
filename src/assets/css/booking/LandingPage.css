@@ -1,0 +1,556 @@
+/* src/assets/css/booking/LandingPage.css */
+
+/* --- Nuevo: Efecto de Luz del Cursor --- */
+.cursor-light {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(21, 107, 122, 0.4) 0%, rgba(21, 107, 122, 0) 60%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    filter: blur(50px);
+    transition: background 0.3s ease;
+}
+
+.hero-section:hover .cursor-light {
+    background: radial-gradient(circle, rgba(21, 107, 122, 0.6) 0%, rgba(21, 107, 122, 0) 70%);
+}
+
+
+/* General Styles */
+.landing-page-section {
+    padding: 80px 0;
+    position: relative; /* Necesario para las animaciones */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+h2 {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* --- SECCIÓN 1: HERO --- */
+.hero-section {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+    z-index: 1; /* Aumentado para estar sobre el efecto de luz */
+}
+
+.hero-content {
+    z-index: 2; /* Aumentado para estar sobre la capa de superposición */
+}
+
+.hero-content .hero-title {
+    font-size: 3.8rem;
+    font-weight: 800;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    color: #FFFFFF;
+}
+
+.hero-content .hero-subtitle {
+    font-size: 1.6rem;
+    max-width: 750px;
+    margin: 1.5rem auto 2.5rem auto;
+    font-weight: 400;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+    color: #f0f0f0;
+}
+
+.hero-cta-button {
+    background-color: #156B7A;
+    color: white;
+    padding: 18px 40px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+}
+.hero-cta-button:hover {
+    background-color: #fff;
+    color: #156B7A;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* --- Carrusel de Logos --- */
+.logo-scroller {
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    width: 100%;
+    z-index: 2; /* Aumentado */
+    overflow: hidden;
+}
+
+.scroller-title {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.scroller__inner {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% / 4)); /* Ajustado para el bucle correcto */
+    }
+}
+
+.logo-item {
+    padding: 0 2.5rem; /* Espacio entre logos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px; /* Altura fija para todos los contenedores */
+}
+
+.logo-item img {
+    max-height: 100%; /* La imagen no superará la altura del contenedor */
+    max-width: 150px; /* Ancho máximo para evitar que logos anchos dominen */
+    width: auto; /* Mantiene la proporción */
+    filter: brightness(0) invert(1) grayscale(0.2);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.scroller__inner:hover {
+    animation-play-state: paused;
+}
+
+.logo-item:hover img {
+    transform: scale(1.15);
+    opacity: 1;
+    filter: brightness(0) invert(1) grayscale(0);
+}
+
+/* --- NUEVA SECCIÓN: SERVICIOS EXCLUSIVOS --- */
+.exclusive-services-section {
+    background-color: #fff;
+}
+
+.service-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+}
+
+.service-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+    border-color: #156B7A;
+}
+
+.service-icon-container {
+    margin: 0 auto 25px auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #eaf3f4, #156B7A);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon-container {
+    background: linear-gradient(135deg, #156B7A, #115663);
+}
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+}
+
+.service-card h4 {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.service-card p {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+
+/* --- SECCIÓN 4: PRUEBA SOCIAL --- */
+.proof-section {
+    background-color: #f8f9fa;
+}
+
+.testimonial-carousel .react-multi-carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonial-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    margin: 20px;
+    max-width: 750px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-top: 5px solid #156B7A;
+    transition: all 0.3s ease; /* Transición para microinteracción */
+}
+
+/* Microinteracción en hover */
+.testimonial-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+
+.testimonial-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+    border: 4px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.star-rating {
+    color: #ffc107;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+.star-rating .star-empty {
+    color: #e0e0e0;
+}
+
+.testimonial-quote {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.testimonial-author strong {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.testimonial-author span {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.testimonial-metrics {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.metric-tag {
+    background-color: #eaf3f4;
+    color: #156B7A;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.custom-dot-list-style .react-multi-carousel-dot--active button {
+    background: #156B7A !important;
+}
+
+
+/* --- SECCIÓN 6: OFERTA (CARTAS DE PRECIOS) --- */
+.offer-section {
+    background: #f8f9fa;
+}
+
+.pricing-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.pricing-card.featured {
+    border: 2px solid #156B7A;
+    position: relative;
+    overflow: hidden;
+}
+.featured-badge {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background-color: #156B7A;
+    color: white;
+    padding: 5px 30px;
+    transform: rotate(45deg);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.pricing-card h3 {
+    font-weight: 700;
+    color: #156B7A;
+}
+
+.pricing-card .price {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin: 10px 0;
+}
+.pricing-card .price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #777;
+}
+
+.pricing-card .description {
+    color: #6c757d;
+    margin-bottom: 30px;
+    min-height: 50px;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left;
+    flex-grow: 1;
+}
+.features-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.feature-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.features-list .included .feature-icon {
+    color: #28a745;
+}
+.features-list .excluded {
+    color: #aaa;
+    text-decoration: line-through;
+}
+.features-list .excluded .feature-icon {
+    color: #dc3545;
+}
+.highlight-text {
+    font-weight: 600;
+    color: #156B7A;
+    margin-left: 8px;
+    font-style: italic;
+}
+
+
+.pricing-card .btn-cta {
+    background-color: #156B7A;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: 100%;
+}
+.pricing-card:not(.featured) .btn-cta {
+    background-color: #f1f1f1;
+    color: #156B7A;
+}
+
+.pricing-card:not(.featured) .btn-cta:hover {
+    background-color: #e0e0e0;
+}
+
+.pricing-card.featured .btn-cta:hover {
+    background-color: #115663;
+}
+
+
+/* --- SECCIÓN 8: FAQ (ACORDEÓN) --- */
+.faq-item {
+    border-bottom: 1px solid #e9ecef;
+}
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem 1rem;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+.faq-question:hover {
+    color: #156B7A;
+}
+
+.faq-answer {
+    padding: 0 1rem 1.5rem 1rem;
+    color: #6c757d;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+/* Mantener el resto de los estilos */
+.problem-item {
+    text-align: center;
+    padding: 1rem;
+}
+
+.problem-item .icon {
+    font-size: 2.5rem;
+    color: #156B7A;
+    margin-bottom: 1rem;
+}
+
+.solution-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+}
+.tab-button {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #6c757d;
+    position: relative;
+    transition: color 0.3s ease;
+}
+.tab-button.active {
+    color: #156B7A;
+}
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #156B7A;
+}
+.tab-content {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+}
+.process-step {
+    text-align: center;
+}
+.process-step .icon {
+    font-size: 3rem;
+    color: #156B7A;
+    margin-bottom: 1rem;
+}
+#calculator {
+    background-color: #f8f9fa;
+}
+#calculator .form-control {
+    padding: 15px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease; /* Transición para foco */
+}
+#calculator .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(21, 107, 122, 0.25);
+    border-color: #156B7A;
+}
+
+#calculator .btn-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+#calculator .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.final-pitch-section {
+    background-color: #156B7A;
+    color: white;
+}
+.final-pitch-section .hero-cta-button {
+    background-color: white;
+    color: #156B7A;
+}
+.final-pitch-section .hero-cta-button:hover {
+    background-color: #f0f0f0;
+}
