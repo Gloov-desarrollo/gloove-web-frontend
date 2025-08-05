@@ -1,0 +1,27 @@
+
+.stepper .input-group {
+  display: flex;
+  align-items: center;
+}
+
+.stepper .form-control {
+  border-left: 0;
+  border-right: 0;
+  box-shadow: none;
+}
+
+.stepper .btn {
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: #156B7A; /* Color corporativo para el borde */
+  color: #156B7A; /* Color corporativo para el icono */
+}
+
+.stepper .btn:hover {
+  background-color: #156B7A; /* Color corporativo para el fondo en hover */
+  color: #fff; /* Texto blanco en hover */
+}
